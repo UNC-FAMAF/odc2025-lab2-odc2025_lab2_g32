@@ -13,8 +13,8 @@ main:
  	mov x20, x0	// Guarda la dirección base del framebuffer en x20
 	//---------------- CODE HERE ------------------------------------
 
-	movz x10, 0x0B, lsl 16
-	movk x10, 0x438E, lsl 00
+	movz x10, 0x0C, lsl 16
+	movk x10, 0x458E, lsl 00
 
 	mov x2, SCREEN_HEIGH         // Y Size
 loop1:
