@@ -5,5 +5,6 @@ Informe:
 
 
 Integrantes:
-(nombre, apellido y DNI)
-Demian Nicolas Ramirez  42898073
+Nombres                     DNI
+Demian Nicolas Ramirez      42898073
+Lucas Javier Valdez         43353285
