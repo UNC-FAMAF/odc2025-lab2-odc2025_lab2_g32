@@ -13,8 +13,8 @@ main:
  	mov x20, x0	// Guarda la dirección base del framebuffer en x20
 	//---------------- CODE HERE ------------------------------------
 
-	movz x10, 0x4C99, lsl 00                  // Cambiamos los COLORES
-
+	movz x10, 0x0000, lsl 00                  // Cambiamos los COLORES
+	movk x10, 0xFFFF, lsl 16                  // Cambiamos los COLORES
 
 	mov x2, SCREEN_HEIGH         // Y Size
 loop1:
@@ -26,7 +26,57 @@ loop0:
 	cbnz x1,loop0  // Si no terminó la fila, salto
 	sub x2,x2,1	   // Decrementar contador Y
 	cbnz x2,loop1  // Si no es la última fila, salto
+	
+	//-------------------------------------------------------------------//
+	mov x0, x20	// Guarda la dirección base del framebuffer en x0
+	mov x1, SCREEN_HEIGH
+	movz x10, 0xFFFF, lsl 00                  // Cambiamos los COLORES
+	movk x10, 0xFFFF, lsl 16                  // Cambiamos los COLORES
 
+	lsr x12, x1, #1 		// x11 = SCREEN_HEIGH / 2
+	mov x2, X12         // Y Size
+loop2:
+	mov x1, SCREEN_WIDTH         // X Size
+loop3:
+	stur w10,[x0]  // Colorear el pixel N
+	add x0,x0,4	   // Siguiente pixel
+	sub x1,x1,1	   // Decrementar contador X
+	cbnz x1,loop3  // Si no terminó la fila, salto
+	sub x2,x2,1	   // Decrementar contador Y
+	cbnz x2,loop2  // Si no es la última fila, salto
+	
+	
+	
+	//-------------------------------------------------------------------//
+
+
+	mov x0, x20                // Dirección base del framebuffer
+    movz x10, 0x00FF, lsl 00   // Color: azul (por ejemplo)
+    movk x10, 0x0000, lsl 16
+
+    mov x3, 320            // Alto del cuadrado (Y)
+    mov x4, 427             // Ancho del cuadrado (X)
+    mov x5, SCREEN_WIDTH       // Ancho de la pantalla
+
+    mov x6, 160         // Y inicial
+cuad_y_loop:
+    mov x7, 213      // X inicial
+cuad_x_loop:
+    // Calcula la dirección del píxel: x0 + (y * SCREEN_WIDTH + x) * 4
+    mul x8, x6, x5             // y * SCREEN_WIDTH
+    add x8, x8, x7             // + x
+    lsl x8, x8, 2              // * 4 (bytes por píxel)
+    add x9, x0, x8             // Dirección final
+
+    stur w10, [x9]             // Escribe el color
+
+    add x7, x7, 1              // x++
+    cmp x7, x4
+    blt cuad_x_loop            // Si x < ancho, sigue
+
+    add x6, x6, 1              // y++
+    cmp x6, x3
+    blt cuad_y_loop            // Si y < alto, sigue
 
 
 
