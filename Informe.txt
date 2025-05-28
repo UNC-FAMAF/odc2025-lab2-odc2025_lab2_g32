@@ -5,6 +5,8 @@ Informe:
 
 
 Integrantes:
-Nombres                     DNI
-Demian Nicolas Ramirez      42898073
-Lucas Javier Valdez         43353285
+Nombres                       DNI
+Demian Nicolas Ramirez        42898073
+Lucas Javier Valdez           43353285
+Maximo Emanuel Nievas Greiff  44475659
+        
