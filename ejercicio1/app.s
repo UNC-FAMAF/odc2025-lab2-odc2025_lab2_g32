@@ -12,9 +12,9 @@ main:
 	// x0 contiene la direccion base del framebuffer
  	mov x20, x0	// Guarda la dirección base del framebuffer en x20
 	//---------------- CODE HERE ------------------------------------
-
-	movz x10, 0x00FF00, lsl 00                  // Color: Rojo
-	movk x10, 0x00, lsl 16                  // 
+                                              //Significado de colores en HEXA:
+	movz x10, 0xFF0B, lsl 00                  // GB
+	movk x10, 0x0000, lsl 16                  // AR
 
 	mov x2, SCREEN_HEIGH         // Y Size
 loop1:
@@ -27,15 +27,15 @@ loop0:
 	sub x2,x2,1	   // Decrementar contador Y
 	cbnz x2,loop1  // Si no es la última fila, salto
 	
-	   								
-
 	//-------------------------------------------------------------------//
-	mov x0, x20	// Guarda la dirección base del framebuffer en x0
-	mov x1, SCREEN_HEIGH                      // en x1 guardamos el alto de la pantalla
-	movz x10, 0x0000, lsl 00                  // Color: Blanco
-	movk x10, 0x00, lsl 16                  // 
 
-	lsr x12, x1, #1 		// x12 = SCREEN_HEIGH / 2
+    // Pinta parate de arriba pantalla
+	mov x0, x20	// Guarda la dirección base del framebuffer en x0
+	mov x1, SCREEN_HEIGH
+	movz x10, 0x9DFF, lsl 00                  // Color celeste
+	movk x10, 0x0000, lsl 16                  // Cambiamos los COLORES
+
+	lsr x12, x1, #1 		// x11 = SCREEN_HEIGH / 2
 	mov x2, X12         // Y Size
 loop2:
 	mov x1, SCREEN_WIDTH         // X Size
@@ -46,77 +46,20 @@ loop3:
 	cbnz x1,loop3  // Si no terminó la fila, salto
 	sub x2,x2,1	   // Decrementar contador Y
 	cbnz x2,loop2  // Si no es la última fila, salto
-	
 
-    movz x10, 0xFFFF, lsl 00   // Color: azul (por ejemplo)
-    movk x10, 0xFF, lsl 16
-    mov x3, 320            // Alto del cuadrado (Y)
-    mov x4, 427             // Ancho del cuadrado (X)
-    mov x5, 640       // Ancho de la pantalla
-    mov x6, 160         // Y inicial
-		mov x11, 213      // X inicial
+    
 
-
-	bl dibujar_cuadrado						// Dibuja un cuadrado
-	
-	//-------------------------------------------------------------------//
-// Dibuja un circulo en el framebuffer
-	
-    mov x0, x20                // Dirección base del framebuffer
-    movz x10, 0xB6D4, lsl 00   // Color: rojo (formato RGB565)
-    movk x10, 0xEF, lsl 16
-
-    mov x11, 320               // xc (centro x)
-    mov x12, 240               // yc (centro y)
-    mov x13, 240                // radio
-
-    mov x6, 0                  // y = 0
-circle_y_loop:
-    mov x7, 0                  // x = 0
-circle_x_loop:
-    // dx = x - xc
-    sub x14, x7, x11
-    // dy = y - yc
-    sub x15, x6, x12
-    // dxdx
-    mul x16, x14, x14
-    // dydy
-    mul x17, x15, x15
-    // dxdx + dydy
-    add x18, x16, x17
-    // radioradio
-    mul x19, x13, x13
-    // Si (dxdx + dydy) < radioradio, pintar
-    cmp x18, x19
-    bge no_circle_pixel
-
-    // Calcula la dirección del píxel: x0 + (y * SCREEN_WIDTH + x) * 4
-    mul x8, x6, x5
-    add x8, x8, x7
-    lsl x8, x8, 2
-    add x9, x0, x8
-    stur w10, [x9]
-
-no_circle_pixel:
-    add x7, x7, 1
-    cmp x7, 640                // Limita el área de dibujo
-    blt circle_x_loop
-
-    add x6, x6, 1
-    cmp x6, 480                // Limita el área de dibujo
-    blt circle_y_loop
-
-  
-// termina el circulo
-	//-------------------------------------------------------------------//
-
-	// Ejemplo de uso de gpios
-	mov x9, GPIO_BASE
-
-	// Atención: se utilizan registros w porque la documentación de broadcom
-	// indica que los registros que estamos leyendo y escribiendo son de 32 bits
-
-	// Setea gpios 0 - 9 como lectura
+    mov x0, x20        // pasar framebuffer base
+    mov x1, #400       // centro_x
+    mov x2, #100       // centro_y
+    mov x3, #70        // radio
+    movz x4, 0x2233, lsl 00                  // Color verde
+	movk x4, 0xFF11, lsl 16                  // Cambiamos los COLORES
+    //mov w4, #0x00AAAA  // color (ejemplo amarillo 0x0000F022, ajustar si quieres)
+    
+    bl dibujar_circulo
+    
+    // Setea gpios 0 - 9 como lectura
 	str wzr, [x9, GPIO_GPFSEL0]
 
 	// Lee el estado de los GPIO 0 - 31
@@ -134,3 +77,39 @@ no_circle_pixel:
 
 InfLoop:
 	b InfLoop
+    
+//-------------------------------------------------------------------//
+  
+/*
+
+    // cuadrado
+	mov x0, x20                // Dirección base del framebuffer
+    movz x10, 0xFF0B, lsl 00   // Color: azul (por ejemplo) 0x00FF
+    movk x10, 0x0000, lsl 16   // 13FF0B verde
+
+    mov x3, 300            // Alto del cuadrado (Y)
+    mov x4, 480             // Ancho del cuadrado (X)
+    mov x5, SCREEN_WIDTH       // Ancho de la pantalla
+
+    mov x6, 160         // Y inicial
+cuad_y_loop:
+    mov x7, 213      // X inicial
+cuad_x_loop:
+    // Calcula la dirección del píxel: x0 + (y * SCREEN_WIDTH + x) * 4
+    mul x8, x6, x5             // y * SCREEN_WIDTH
+    add x8, x8, x7             // + x
+    lsl x8, x8, 2              // * 4 (bytes por píxel)
+    add x9, x0, x8             // Dirección final
+
+    stur w10, [x9]             // Escribe el color
+
+    add x7, x7, 1              // x++
+    cmp x7, x4
+    blt cuad_x_loop            // Si x < ancho, sigue
+
+    add x6, x6, 1              // y++
+    cmp x6, x3
+    blt cuad_y_loop            // Si y < alto, sigue
+
+*/
+
