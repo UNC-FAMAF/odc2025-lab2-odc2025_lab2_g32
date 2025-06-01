@@ -98,7 +98,166 @@ no_circle_pixel:
     blt circle_y_loop
     
 //-------------------------------------------------------------------//
-  
+   // Nuebe 1
+    mov x0, x20            // framebuffer base
+    mov x21, #640          // SCREEN_WIDTH
+
+    mov w10, #0xFFFFFF     // color blanco en formato RGB
+
+    mov x11, #150          // centro_x
+    mov x12, #100          // centro_y
+    mov x13, #20           // radio
+
+    mov x6, #0
+
+nube_y_loop:
+    mov x7, #0
+
+nube_x_loop:
+    sub x14, x7, x11
+    sub x15, x6, x12
+    mul x16, x14, x14
+    mul x17, x15, x15
+    add x18, x16, x17
+    mul x19, x13, x13
+    cmp x18, x19
+    bge nube_skip_pixel
+
+    mul x8, x6, x21
+    add x8, x8, x7
+    lsl x8, x8, #2
+    add x9, x0, x8
+    str w10, [x9]          // escribir 4 bytes del color blanco
+
+nube_skip_pixel:
+    add x7, x7, #1
+    cmp x7, #640
+    blt nube_x_loop
+
+    add x6, x6, #1
+    cmp x6, #480
+    blt nube_y_loop
+
+    // Nube 2
+    mov x0, x20            // framebuffer base
+    mov x21, #640          // SCREEN_WIDTH
+
+    mov w10, #0xFFFFFF     // color blanco en formato RGB
+
+    mov x22, #170          // centro_x
+    mov x23, #95          // centro_y
+    mov x24, #20           // radio
+
+    mov x25, #0            // y = 0
+
+nube2_y_loop:
+    mov x26, #0            // x = 0
+
+nube2_x_loop:
+    sub x27, x26, x22      // dx = x - centro_x
+    sub x28, x25, x23      // dy = y - centro_y
+    mul x30, x27, x27      // dx^2
+    mul x19, x28, x28      // dy^2
+    add x18, x30, x19      // dx^2 + dy^2
+    mul x17, x24, x24      // radio^2
+    cmp x18, x17
+    bge nube2_skip_pixel
+
+    mul x8, x25, x21
+    add x8, x8, x26
+    lsl x8, x8, #2
+    add x9, x0, x8
+    str w10, [x9]
+
+nube2_skip_pixel:
+    add x26, x26, #1
+    cmp x26, #640
+    blt nube2_x_loop
+
+    add x25, x25, #1
+    cmp x25, #480
+    blt nube2_y_loop
+
+    // Nube 3
+    mov x0, x20            // framebuffer base
+    mov x21, #640          // SCREEN_WIDTH
+
+    mov w10, #0xFFFFFF     // color blanco en formato RGB
+
+    mov x22, #190         // centro_x
+    mov x23, #100          // centro_y
+    mov x24, #20          // radio
+
+    mov x25, #0            // y = 0
+
+nube3_y_loop:
+    mov x26, #0            // x = 0
+
+nube3_x_loop:
+    sub x27, x26, x22      // dx = x - centro_x
+    sub x28, x25, x23      // dy = y - centro_y
+    mul x30, x27, x27      // dx^2
+    mul x19, x28, x28      // dy^2
+    add x18, x30, x19      // dx^2 + dy^2
+    mul x17, x24, x24      // radio^2
+    cmp x18, x17
+    bge nube3_skip_pixel
+
+    mul x8, x25, x21
+    add x8, x8, x26
+    lsl x8, x8, #2
+    add x9, x0, x8
+    str w10, [x9]
+
+nube3_skip_pixel:
+    add x26, x26, #1
+    cmp x26, #640
+    blt nube3_x_loop
+
+    add x25, x25, #1
+    cmp x25, #480
+    blt nube3_y_loop
+
+   // Nube 4
+    mov x0, x20            // framebuffer base
+    mov x21, #640          // SCREEN_WIDTH
+
+    mov w10, #0xFFFFFF     // color blanco en formato RGB
+
+    mov x22, #170         // centro_x
+    mov x23, #110         // centro_y
+    mov x24, #20          // radio
+
+    mov x25, #0            // y = 0
+
+nube4_y_loop:
+    mov x26, #0            // x = 0
+
+nube4_x_loop:
+    sub x27, x26, x22      // dx = x - centro_x
+    sub x28, x25, x23      // dy = y - centro_y
+    mul x30, x27, x27      // dx^2
+    mul x19, x28, x28      // dy^2
+    add x18, x30, x19      // dx^2 + dy^2
+    mul x17, x24, x24      // radio^2
+    cmp x18, x17
+    bge nube4_skip_pixel
+
+    mul x8, x25, x21
+    add x8, x8, x26
+    lsl x8, x8, #2
+    add x9, x0, x8
+    str w10, [x9]
+
+nube4_skip_pixel:
+    add x26, x26, #1
+    cmp x26, #640
+    blt nube4_x_loop
+
+    add x25, x25, #1
+    cmp x25, #480
+    blt nube4_y_loop
+//-------------------------------------------------------------------//
 /*
 
     // cuadrado
