@@ -1,4 +1,4 @@
-	.equ SCREEN_WIDTH, 		640
+.equ SCREEN_WIDTH, 		640
 	.equ SCREEN_HEIGH, 		480
 	.equ BITS_PER_PIXEL,  	32
 
@@ -13,8 +13,8 @@ main:
  	mov x20, x0	// Guarda la dirección base del framebuffer en x20
 	//---------------- CODE HERE ------------------------------------
 
-	movz x10, 0x0000, lsl 00                  // Cambiamos los COLORES
-	movk x10, 0xFFFF, lsl 16                  // Cambiamos los COLORES
+	movz x10, 0xFF0B, lsl 00                  // Color verde
+	movk x10, 0x0000, lsl 16                  // Cambiamos los COLORES
 
 	mov x2, SCREEN_HEIGH         // Y Size
 loop1:
@@ -28,10 +28,12 @@ loop0:
 	cbnz x2,loop1  // Si no es la última fila, salto
 	
 	//-------------------------------------------------------------------//
+
+    // Pinta parate de arriba pantalla
 	mov x0, x20	// Guarda la dirección base del framebuffer en x0
 	mov x1, SCREEN_HEIGH
-	movz x10, 0xFFFF, lsl 00                  // Cambiamos los COLORES
-	movk x10, 0xFFFF, lsl 16                  // Cambiamos los COLORES
+	movz x10, 0x9DFF, lsl 00                  // Color celeste
+	movk x10, 0x0000, lsl 16                  // Cambiamos los COLORES
 
 	lsr x12, x1, #1 		// x11 = SCREEN_HEIGH / 2
 	mov x2, X12         // Y Size
@@ -44,41 +46,100 @@ loop3:
 	cbnz x1,loop3  // Si no terminó la fila, salto
 	sub x2,x2,1	   // Decrementar contador Y
 	cbnz x2,loop2  // Si no es la última fila, salto
+	 
+mov x0, x20 // framebuffer_base
+mov x1, #50              // centro_x
+mov x2, #90         // centro_y
+mov x3, #20     // radio
+movz x4, 0xFFFF, lsl 00  // blanco
+movk x4, 0xFFFF, lsl 16
+bl dibujar_circulo
+
+mov x0, x20
+mov x1, #70             // centro 2, un poco a la derecha
+mov x2, #85
+mov x3, #25
+movz x4, 0xFFFF, lsl 00
+movk x4, 0xFFFF, lsl 16
+bl dibujar_circulo
+
+mov x0, x20
+mov x1, #90
+mov x2, #90
+mov x3, #20
+movz x4, 0xFFFF, lsl 00
+movk x4, 0xFFFF, lsl 16
+bl dibujar_circulo
+ 
+
+//---------------------------- LETRA "O" ---------------------------//
+// Círculo exterior blanco
+mov x0, x20               // framebuffer base
+mov x1, #160              // centro_x
+mov x2, #130              // centro_y
+mov x3, #20          // radio
+movz x4, 0xFFFF, lsl 00   // blanco
+movk x4, 0xFFFF, lsl 16
+bl dibujar_circulo
+
+// Círculo interior violeta
+mov x0, x20               // framebuffer base
+mov x1, #160              // centro_x
+mov x2, #130              // centro_y
+mov x3, #14               // radio
+movz x4, 0x9DFF, lsl 00   // Color celeste
+movk x4, 0x0000, lsl 16
+bl dibujar_circulo
+
+//-------------------------------------------------------------------//
+
+
+//---------------------------- LETRA "d" ---------------------------//
+
+// Círculo exterior blanco
+mov x0, x20               // framebuffer base
+mov x1, #205              // centro_x
+mov x2, #130              // centro_y
+mov x3, #20          // radio
+movz x4, 0xFFFF, lsl 00   // blanco
+movk x4, 0xFFFF, lsl 16
+bl dibujar_circulo
+
+// Círculo interior violeta
+mov x0, x20               // framebuffer base
+mov x1, #205              // centro_x
+mov x2, #130              // centro_y
+mov x3, #14               // radio
+movz x4, 0x9DFF, lsl 00   // Color celeste
+movk x4, 0x0000, lsl 16
+bl dibujar_circulo
+
+// Falta el palito
 	
-	
+
+	mov x0, x20        // framebuffer base
+	mov x1, #555       // centro_x
+	mov x2, #140       // centro_y
+	mov x3, #45        // radio
+	movz x4, 0xD700, lsl 00
+	movk x4, 0x00FF, lsl 16 // color (sol)
+	bl dibujar_circulo
 	
 	//-------------------------------------------------------------------//
-
-
-	mov x0, x20                // Dirección base del framebuffer
-    movz x10, 0x00FF, lsl 00   // Color: azul (por ejemplo)
-    movk x10, 0x0000, lsl 16
-
-    mov x3, 320            // Alto del cuadrado (Y)
-    mov x4, 427             // Ancho del cuadrado (X)
-    mov x5, SCREEN_WIDTH       // Ancho de la pantalla
-
-    mov x6, 160         // Y inicial
-cuad_y_loop:
-    mov x7, 213      // X inicial
-cuad_x_loop:
-    // Calcula la dirección del píxel: x0 + (y * SCREEN_WIDTH + x) * 4
-    mul x8, x6, x5             // y * SCREEN_WIDTH
-    add x8, x8, x7             // + x
-    lsl x8, x8, 2              // * 4 (bytes por píxel)
-    add x9, x0, x8             // Dirección final
-
-    stur w10, [x9]             // Escribe el color
-
-    add x7, x7, 1              // x++
-    cmp x7, x4
-    blt cuad_x_loop            // Si x < ancho, sigue
-
-    add x6, x6, 1              // y++
-    cmp x6, x3
-    blt cuad_y_loop            // Si y < alto, sigue
-
-
+  // Triángulo de vértices arbitrarios (ejemplo)
+	mov x0, x20
+	mov x1, SCREEN_WIDTH
+	movz x2, 0xFFD4, lsl 0 // color rojo
+	movk x2, 0x007F, lsl 16
+	mov x3, #0   // (x3,x4)=(x,y) del vértice 1
+	mov x4, #480	  
+	mov x5, #320   // (x5,x6)=(x,y) del vértice 2
+	mov x6, #205   
+	mov x7, #640	 // (x7,x8)=(x,y) del vértice 3
+	mov x8, #480 	 
+	bl dibujar_triangulo_vertices
+	//-------------------------------------------------------------------//
+//------------------------------ Nube 1 -----------------------------//
 
 	// Ejemplo de uso de gpios
 	mov x9, GPIO_BASE
@@ -104,3 +165,4 @@ cuad_x_loop:
 
 InfLoop:
 	b InfLoop
+
