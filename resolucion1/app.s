@@ -260,3 +260,39 @@ bl dibujar_triangulo_vertices
 
 InfLoop:
 	b InfLoop
+
+
+/*
+//---------------------------------------------------------------//
+    
+	    // Kirby Base
+	    mov x1, #320               // centro_x
+		mov x2, #240               // centro_y
+		mov x3, #88                // radio
+		mov w4, #0x00000000        // negro (ARGB)
+		bl dibujar_circulo
+		
+		mov x1, #320               // centro_x
+		mov x2, #240               // centro_y
+		mov x3, #80                // radio
+		mov w4, #0xFFFF69B4        // rosa (ARGB)
+		bl dibujar_circulo
+
+		mov x1, #320               // centro_x
+		mov x2, #260               // centro_y
+		mov x3, #40                // radio
+		mov w4, #0x00000000        // negro (ARGB)
+		bl dibujar_circulo
+		
+
+		mov x0, x20           // framebuffer
+		mov x3, #50          // alto del rectángulo
+		mov x4, #75          // ancho del rectángulo
+		mov x5, #640          // SCREEN_WIDTH
+		mov x6, #150          // y_inicial
+		mov x7, #100          // x_inicial
+		mov w10, #0xFFFF69B4  // color: magenta ARGB (como ejemplo)
+
+		bl dibujar_rectangulo
+
+     */
