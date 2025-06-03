@@ -161,7 +161,7 @@ mov x5, SCREEN_WIDTH // Ancho de la pantalla
 bl dibujar_rectangulo
 // Fin de la Letra "c"
 
-//---------------------------- NUMERO "2" ---------------------------//
+//---------------------------- 1º NUMERO "2" ---------------------------//
 mov x0, x20   
 movz x10, 0xFFFF, lsl 00 // Color Blanco
 movk x10, 0xFF, lsl 16 
@@ -204,10 +204,70 @@ bl dibujar_rectangulo
 
 mov x0, x20   
 movz x10, 0x9DFF, lsl 00 // Color Celeste
-mov x11, #145 // Posición Y final
+mov x11, #142 // Posición Y final
 mov x12, #342  // Posición X final
-mov x13, #106  // Posición Y inicial
-mov x14, #325  // Posición X inicial
+mov x13, #119  // Posición Y inicial
+mov x14, #329  // Posición X inicial
+mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+bl dibujar_rectangulo
+
+//---------------------------- 2º NUMERO "2" ---------------------------//
+
+mov x0, x20   
+movz x10, 0xFFFF, lsl 00 // Color Blanco
+movk x10, 0xFF, lsl 16 
+mov x11, #150 // Posición Y final
+mov x12, #390  // Posición X final
+mov x13, #111  // Posición Y inicial
+mov x14, #360  // Posición X inicial
+mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+bl dibujar_rectangulo
+
+mov x0, x20   
+movz x10, 0x9DFF, lsl 00 // Color Celeste
+mov x11, #129 // Posición Y final
+mov x12, #380  // Posición X final
+mov x13, #120  // Posición Y inicial
+mov x14, #360  // Posición X inicial
+mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+bl dibujar_rectangulo
+
+mov x0, x20   
+movz x10, 0x9DFF, lsl 00 // Color Celeste
+mov x11, #143 // Posición Y final
+mov x12, #390  // Posición X final
+mov x13, #134  // Posición Y inicial
+mov x14, #370  // Posición X inicial
+mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+bl dibujar_rectangulo
+
+//---------------------------- NUMERO "5" ---------------------------//
+
+mov x0, x20   
+movz x10, 0xFFFF, lsl 00 // Color Blanco
+movk x10, 0xFF, lsl 16 
+mov x11, #150 // Posición Y final
+mov x12, #430  // Posición X final
+mov x13, #111  // Posición Y inicial
+mov x14, #400  // Posición X inicial
+mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+bl dibujar_rectangulo
+
+mov x0, x20   
+movz x10, 0x9DFF, lsl 00 // Color Celeste
+mov x11, #129 // Posición Y final
+mov x12, #430  // Posición X final
+mov x13, #120  // Posición Y inicial
+mov x14, #410  // Posición X inicial
+mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+bl dibujar_rectangulo
+
+mov x0, x20   
+movz x10, 0x9DFF, lsl 00 // Color Celeste
+mov x11, #143 // Posición Y final
+mov x12, #420  // Posición X final
+mov x13, #134  // Posición Y inicial
+mov x14, #400  // Posición X inicial
 mov x5, SCREEN_WIDTH // Ancho de la pantalla	
 bl dibujar_rectangulo
 
@@ -261,38 +321,3 @@ bl dibujar_triangulo_vertices
 InfLoop:
 	b InfLoop
 
-
-/*
-//---------------------------------------------------------------//
-    
-	    // Kirby Base
-	    mov x1, #320               // centro_x
-		mov x2, #240               // centro_y
-		mov x3, #88                // radio
-		mov w4, #0x00000000        // negro (ARGB)
-		bl dibujar_circulo
-		
-		mov x1, #320               // centro_x
-		mov x2, #240               // centro_y
-		mov x3, #80                // radio
-		mov w4, #0xFFFF69B4        // rosa (ARGB)
-		bl dibujar_circulo
-
-		mov x1, #320               // centro_x
-		mov x2, #260               // centro_y
-		mov x3, #40                // radio
-		mov w4, #0x00000000        // negro (ARGB)
-		bl dibujar_circulo
-		
-
-		mov x0, x20           // framebuffer
-		mov x3, #50          // alto del rectángulo
-		mov x4, #75          // ancho del rectángulo
-		mov x5, #640          // SCREEN_WIDTH
-		mov x6, #150          // y_inicial
-		mov x7, #100          // x_inicial
-		mov w10, #0xFFFF69B4  // color: magenta ARGB (como ejemplo)
-
-		bl dibujar_rectangulo
-
-     */
