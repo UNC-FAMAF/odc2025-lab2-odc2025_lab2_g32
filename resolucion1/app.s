@@ -46,74 +46,37 @@ loop3:
 	cbnz x1,loop3  // Si no terminó la fila, salto
 	sub x2,x2,1	   // Decrementar contador Y
 	cbnz x2,loop2  // Si no es la última fila, salto
-
-	//-------------------------------- Sol -------------------------------//
- 	mov x0, x20        // framebuffer base
-	mov x1, #555       // centro_x
-	mov x2, #140       // centro_y
-	mov x3, #45        // radio
-	movz x4, 0xD700, lsl 00
-	movk x4, 0x00FF, lsl 16 // color (sol)
-	bl dibujar_circulo
-	//-------------------------------------------------------------------//
- 
-	//------------------------------ Nube 1 -----------------------------//
-	mov x0, x20				 // framebuffer_base
-	mov x1, #50              // centro_x
-	mov x2, #90		         // centro_y
-	mov x3, #20			     // radio
-	movz x4, 0xFFFF, lsl 00  // blanco 
-	movk x4, 0xFFFF, lsl 16  
-	bl dibujar_circulo
-
-	mov x0, x20
-	mov x1, #70             // centro 2, un poco a la derecha
-	mov x2, #85
-	mov x3, #25
-	movz x4, 0xFFFF, lsl 00   
-	movk x4, 0xFFFF, lsl 16  
-	bl dibujar_circulo
-
-	mov x0, x20
-	mov x1, #90
-	mov x2, #90
-	mov x3, #20
-	movz x4, 0xFFFF, lsl 00   
-	movk x4, 0xFFFF, lsl 16  
-	bl dibujar_circulo
-	//-------------------------------------------------------------------//
+	 
 
 
-	//------------------------------ Nube 2 -----------------------------//
-	mov x0, x20				 // framebuffer_base
-	mov x1, #375             // centro_x
-	mov x2, #90		         // centro_y
-	mov x3, #20			     // radio
-	movz x4, 0xFFFF, lsl 00  // blanco 
-	movk x4, 0xFFFF, lsl 16  
-	bl dibujar_circulo
+//------------------------------ Nube 1 -----------------------------//	 
+mov x0, x20 // framebuffer_base
+mov x1, #50              // centro_x
+mov x2, #90         // centro_y
+mov x3, #20     // radio
+movz x4, 0xFFFF, lsl 00  // blanco
+movk x4, 0xFFFF, lsl 16
+bl dibujar_circulo
 
-	mov x0, x20
-	mov x1, 395             // centro 2, un poco a la derecha
-	mov x2, #85
-	mov x3, #25
-	movz x4, 0xFFFF, lsl 00   
-	movk x4, 0xFFFF, lsl 16  
-	bl dibujar_circulo
+mov x0, x20
+mov x1, #70             // centro 2, un poco a la derecha
+mov x2, #85
+mov x3, #25
+movz x4, 0xFFFF, lsl 00
+movk x4, 0xFFFF, lsl 16
+bl dibujar_circulo
 
-	mov x0, x20
-	mov x1, #415
-	mov x2, #90
-	mov x3, #20
-	movz x4, 0xFFFF, lsl 00   
-	movk x4, 0xFFFF, lsl 16  
-	bl dibujar_circulo
-	//-------------------------------------------------------------------//
-
+mov x0, x20
+mov x1, #90
+mov x2, #90
+mov x3, #20
+movz x4, 0xFFFF, lsl 00
+movk x4, 0xFFFF, lsl 16
+bl dibujar_circulo
  
 
 //---------------------------- LETRA "O" ---------------------------//
-// Círculo exterior 
+// Círculo exterior blanco
 mov x0, x20               // framebuffer base
 mov x1, #160              // centro_x
 mov x2, #130              // centro_y
@@ -122,7 +85,7 @@ movz x4, 0xFFFF, lsl 00   // blanco
 movk x4, 0xFFFF, lsl 16
 bl dibujar_circulo
 
-// Círculo interior 
+// Círculo interior azul
 mov x0, x20               // framebuffer base
 mov x1, #160              // centro_x
 mov x2, #130              // centro_y
@@ -145,7 +108,7 @@ movz x4, 0xFFFF, lsl 00   // blanco
 movk x4, 0xFFFF, lsl 16
 bl dibujar_circulo
 
-// Círculo interior violeta
+// Círculo interior
 mov x0, x20               // framebuffer base
 mov x1, #205              // centro_x
 mov x2, #130              // centro_y
@@ -154,24 +117,124 @@ movz x4, 0x9DFF, lsl 00   // Color celeste
 movk x4, 0x0000, lsl 16
 bl dibujar_circulo
 
-// Falta el palito
-	
+// dibujar el palito de la letra "d"
+mov x0, x20   
+movz x10, 0xFFFF, lsl 00 // Color verde
+movk x10, 0xFF, lsl 16 
+mov x11, #150 // Posición Y final
+mov x12, #199  // Posición X final
+mov x13, #111  // Posición Y inicial
+mov x14, #186  // Posición X inicial
+mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+bl dibujar_rectangulo
+
+// Fin del palito de la Letra "d"
+
+//---------------------------- LETRA "c" ---------------------------//
+
+// Círculo exterior blanco
+mov x0, x20               // framebuffer base
+mov x1, #250              // centro_x
+mov x2, #130              // centro_y
+mov x3, #20          // radio
+movz x4, 0xFFFF, lsl 00   // blanco
+movk x4, 0xFFFF, lsl 16
+bl dibujar_circulo
+
+// Círculo interior azul
+mov x0, x20               // framebuffer base
+mov x1, #250              // centro_x
+mov x2, #130              // centro_y
+mov x3, #14               // radio
+movz x4, 0x9DFF, lsl 00   // Color celeste
+movk x4, 0x0000, lsl 16
+bl dibujar_circulo
+
+
+mov x0, x20   
+movz x10, 0x9DFF, lsl 00 // Color Celeste 
+mov x11, #150 // Posición Y final
+mov x12, #280  // Posición X final
+mov x13, #111  // Posición Y inicial
+mov x14, #259  // Posición X inicial
+mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+bl dibujar_rectangulo
+// Fin de la Letra "c"
+
+//---------------------------- NUMERO "2" ---------------------------//
+mov x0, x20   
+movz x10, 0xFFFF, lsl 00 // Color Blanco
+movk x10, 0xFF, lsl 16 
+mov x11, #150 // Posición Y final
+mov x12, #310  // Posición X final
+mov x13, #111  // Posición Y inicial
+mov x14, #280  // Posición X inicial
+mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+bl dibujar_rectangulo
+
+mov x0, x20   
+movz x10, 0x9DFF, lsl 00 // Color Celeste
+mov x11, #129 // Posición Y final
+mov x12, #300  // Posición X final
+mov x13, #120  // Posición Y inicial
+mov x14, #280  // Posición X inicial
+mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+bl dibujar_rectangulo
+
+mov x0, x20   
+movz x10, 0x9DFF, lsl 00 // Color Celeste
+mov x11, #143 // Posición Y final
+mov x12, #310  // Posición X final
+mov x13, #134  // Posición Y inicial
+mov x14, #290  // Posición X inicial
+mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+bl dibujar_rectangulo
+
+//---------------------------- NUMERO "0" ---------------------------//
+
+mov x0, x20   
+movz x10, 0xFFFF, lsl 00 // Color Blanco
+movk x10, 0xFF, lsl 16 
+mov x11, #150 // Posición Y final
+mov x12, #350  // Posición X final
+mov x13, #111  // Posición Y inicial
+mov x14, #320  // Posición X inicial
+mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+bl dibujar_rectangulo
+
+mov x0, x20   
+movz x10, 0x9DFF, lsl 00 // Color Celeste
+mov x11, #145 // Posición Y final
+mov x12, #342  // Posición X final
+mov x13, #106  // Posición Y inicial
+mov x14, #325  // Posición X inicial
+mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+bl dibujar_rectangulo
+
+//-------------------------------- Sol -------------------------------//
+mov x0, x20        // framebuffer base
+mov x1, #555       // centro_x (ancho)
+mov x2, #140       // centro_y (altura)
+mov x3, #45        // radio
+movz x4, 0xD700, lsl 00
+movk x4, 0x00FF, lsl 16 // color (sol)
+bl dibujar_circulo
+
+//---------------------------------------------------------------//
+// Triángulo de vértices arbitrarios (ejemplo)
+mov x0, x20
+mov x1, SCREEN_WIDTH
+movz x2, 0xFFD4, lsl 0 // color rojo
+movk x2, 0x007F, lsl 16
+mov x3, #0   // (x3,x4)=(x,y) del vértice 1
+mov x4, #480	  
+mov x5, #320   // (x5,x6)=(x,y) del vértice 2
+mov x6, #205   
+mov x7, #640	 // (x7,x8)=(x,y) del vértice 3
+mov x8, #480 	 
+bl dibujar_triangulo_vertices
+
 //-------------------------------------------------------------------//
-
-  // Triángulo de vértices arbitrarios (ejemplo)
-	mov x0, x20
-	mov x1, SCREEN_WIDTH
-	movz x2, 0xFFD4, lsl 0 // color rojo
-	movk x2, 0x007F, lsl 16
-	mov x3, #0   // (x3,x4)=(x,y) del vértice 1
-	mov x4, #480	  
-	mov x5, #320   // (x5,x6)=(x,y) del vértice 2
-	mov x6, #205   
-	mov x7, #640	 // (x7,x8)=(x,y) del vértice 3
-	mov x8, #480 	 
-	bl dibujar_triangulo_vertices
-	//-------------------------------------------------------------------//
-
 
 	// Ejemplo de uso de gpios
 	mov x9, GPIO_BASE
@@ -197,4 +260,3 @@ bl dibujar_circulo
 
 InfLoop:
 	b InfLoop
-
