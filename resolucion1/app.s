@@ -46,34 +46,74 @@ loop3:
 	cbnz x1,loop3  // Si no terminó la fila, salto
 	sub x2,x2,1	   // Decrementar contador Y
 	cbnz x2,loop2  // Si no es la última fila, salto
-	 
-mov x0, x20 // framebuffer_base
-mov x1, #50              // centro_x
-mov x2, #90         // centro_y
-mov x3, #20     // radio
-movz x4, 0xFFFF, lsl 00  // blanco
-movk x4, 0xFFFF, lsl 16
-bl dibujar_circulo
 
-mov x0, x20
-mov x1, #70             // centro 2, un poco a la derecha
-mov x2, #85
-mov x3, #25
-movz x4, 0xFFFF, lsl 00
-movk x4, 0xFFFF, lsl 16
-bl dibujar_circulo
+	//-------------------------------- Sol -------------------------------//
+ 	mov x0, x20        // framebuffer base
+	mov x1, #555       // centro_x
+	mov x2, #140       // centro_y
+	mov x3, #45        // radio
+	movz x4, 0xD700, lsl 00
+	movk x4, 0x00FF, lsl 16 // color (sol)
+	bl dibujar_circulo
+	//-------------------------------------------------------------------//
+ 
+	//------------------------------ Nube 1 -----------------------------//
+	mov x0, x20				 // framebuffer_base
+	mov x1, #50              // centro_x
+	mov x2, #90		         // centro_y
+	mov x3, #20			     // radio
+	movz x4, 0xFFFF, lsl 00  // blanco 
+	movk x4, 0xFFFF, lsl 16  
+	bl dibujar_circulo
 
-mov x0, x20
-mov x1, #90
-mov x2, #90
-mov x3, #20
-movz x4, 0xFFFF, lsl 00
-movk x4, 0xFFFF, lsl 16
-bl dibujar_circulo
+	mov x0, x20
+	mov x1, #70             // centro 2, un poco a la derecha
+	mov x2, #85
+	mov x3, #25
+	movz x4, 0xFFFF, lsl 00   
+	movk x4, 0xFFFF, lsl 16  
+	bl dibujar_circulo
+
+	mov x0, x20
+	mov x1, #90
+	mov x2, #90
+	mov x3, #20
+	movz x4, 0xFFFF, lsl 00   
+	movk x4, 0xFFFF, lsl 16  
+	bl dibujar_circulo
+	//-------------------------------------------------------------------//
+
+
+	//------------------------------ Nube 2 -----------------------------//
+	mov x0, x20				 // framebuffer_base
+	mov x1, #375             // centro_x
+	mov x2, #90		         // centro_y
+	mov x3, #20			     // radio
+	movz x4, 0xFFFF, lsl 00  // blanco 
+	movk x4, 0xFFFF, lsl 16  
+	bl dibujar_circulo
+
+	mov x0, x20
+	mov x1, 395             // centro 2, un poco a la derecha
+	mov x2, #85
+	mov x3, #25
+	movz x4, 0xFFFF, lsl 00   
+	movk x4, 0xFFFF, lsl 16  
+	bl dibujar_circulo
+
+	mov x0, x20
+	mov x1, #415
+	mov x2, #90
+	mov x3, #20
+	movz x4, 0xFFFF, lsl 00   
+	movk x4, 0xFFFF, lsl 16  
+	bl dibujar_circulo
+	//-------------------------------------------------------------------//
+
  
 
 //---------------------------- LETRA "O" ---------------------------//
-// Círculo exterior blanco
+// Círculo exterior 
 mov x0, x20               // framebuffer base
 mov x1, #160              // centro_x
 mov x2, #130              // centro_y
@@ -82,7 +122,7 @@ movz x4, 0xFFFF, lsl 00   // blanco
 movk x4, 0xFFFF, lsl 16
 bl dibujar_circulo
 
-// Círculo interior violeta
+// Círculo interior 
 mov x0, x20               // framebuffer base
 mov x1, #160              // centro_x
 mov x2, #130              // centro_y
@@ -116,16 +156,8 @@ bl dibujar_circulo
 
 // Falta el palito
 	
+//-------------------------------------------------------------------//
 
-	mov x0, x20        // framebuffer base
-	mov x1, #555       // centro_x
-	mov x2, #140       // centro_y
-	mov x3, #45        // radio
-	movz x4, 0xD700, lsl 00
-	movk x4, 0x00FF, lsl 16 // color (sol)
-	bl dibujar_circulo
-	
-	//-------------------------------------------------------------------//
   // Triángulo de vértices arbitrarios (ejemplo)
 	mov x0, x20
 	mov x1, SCREEN_WIDTH
@@ -139,7 +171,7 @@ bl dibujar_circulo
 	mov x8, #480 	 
 	bl dibujar_triangulo_vertices
 	//-------------------------------------------------------------------//
-//------------------------------ Nube 1 -----------------------------//
+
 
 	// Ejemplo de uso de gpios
 	mov x9, GPIO_BASE
