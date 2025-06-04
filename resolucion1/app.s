@@ -280,19 +280,6 @@ movz x4, 0xD700, lsl 00
 movk x4, 0x00FF, lsl 16 // color (sol)
 bl dibujar_circulo
 
-//---------------------------------------------------------------//
-// Triángulo de vértices arbitrarios (ejemplo)
-mov x0, x20
-mov x1, SCREEN_WIDTH
-movz x2, 0xFFD4, lsl 0 // color rojo
-movk x2, 0x007F, lsl 16
-mov x3, #0   // (x3,x4)=(x,y) del vértice 1
-mov x4, #480	  
-mov x5, #320   // (x5,x6)=(x,y) del vértice 2
-mov x6, #205   
-mov x7, #640	 // (x7,x8)=(x,y) del vértice 3
-mov x8, #480 	 
-bl dibujar_triangulo_vertices
 
 //-------------------------------------------------------------------//
 
