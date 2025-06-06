@@ -257,11 +257,10 @@ mov x5, SCREEN_WIDTH // Ancho de la pantalla
 bl dibujar_rectangulo
 
 //Hojas Del Arbol(Arriba)
-
 mov x0, x20               // framebuffer base
 mov x1, #60             // centro_x
 mov x2, #50             // centro_y
-mov x3, #80              // a (radio horizontal)
+mov x3, #75              // a (radio horizontal)
 mov x4, #50              // b (radio vertical)
 movz w5, #0x0080         
 movk w5, #0x0080, lsl 16 // Rosa Oscuro 
@@ -270,7 +269,7 @@ bl dibujar_elipse
 mov x0, x20               // framebuffer base
 mov x1, #65            // centro_x
 mov x2, #47             // centro_y
-mov x3, #77              // a (radio horizontal)
+mov x3, #72              // a (radio horizontal)
 mov x4, #47              // b (radio vertical)
 movz w5, #0x69B4         
 movk w5, #0xFFFF, lsl #16 // Rosa Claro
@@ -279,7 +278,7 @@ bl dibujar_elipse
 mov x0, x20               // framebuffer base
 mov x1, #240             // centro_x
 mov x2, #20             // centro_y
-mov x3, #80              // a (radio horizontal)
+mov x3, #75              // a (radio horizontal)
 mov x4, #70              // b (radio vertical)
 movz w5, #0x0080         
 movk w5, #0x0080, lsl 16 // Rosa Oscuro 
@@ -288,7 +287,7 @@ bl dibujar_elipse
 mov x0, x20               // framebuffer base
 mov x1, #237             // centro_x
 mov x2, #17             // centro_y
-mov x3, #77              // a (radio horizontal)
+mov x3, #72              // a (radio horizontal)
 mov x4, #67              // b (radio vertical)
 movz w5, #0x69B4         
 movk w5, #0xFFFF, lsl #16 // Rosa Claro
@@ -297,7 +296,7 @@ bl dibujar_elipse
 mov x0, x20               // framebuffer base
 mov x1, #173             // centro_x
 mov x2, #20             // centro_y
-mov x3, #90              // a (radio horizontal)
+mov x3, #85              // a (radio horizontal)
 mov x4, #70              // b (radio vertical)
 movz w5, #0x0080         
 movk w5, #0x0080, lsl 16 // Rosa Oscuro 
@@ -306,7 +305,7 @@ bl dibujar_elipse
 mov x0, x20               // framebuffer base
 mov x1, #170             // centro_x
 mov x2, #17             // centro_y
-mov x3, #87              // a (radio horizontal)
+mov x3, #82              // a (radio horizontal)
 mov x4, #67              // b (radio vertical)
 movz w5, #0x69B4         
 movk w5, #0xFFFF, lsl #16 // Rosa Claro
