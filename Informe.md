@@ -15,3 +15,4 @@ Se utilizó la técnica de frames: cada cuadro de la animación representada com
 Estas funciones son llamadas en secuencia dentro de un bucle, alternadas con retardos (delay) para dar la ilusón de movimiento.
 
 Justificación instrucciones ARMv8:
+Utilizamos sp y str en vez de stur y ldur.
