@@ -1,4 +1,6 @@
-   .globl dialogue 
+.equ SCREEN_WIDTH, 		640
+.equ SCREEN_HEIGH, 		480
+.globl dialogue 
 
 
 dialogue:
@@ -13,8 +15,42 @@ dialogue:
     str x30, [sp, #48]
    
    
-   //------------------------- Pensamiento ---------------------------//
+   //------------------------- Globo ---------------------------//
+   mov x0, x20   
+   movz x10, 0xC0C0, lsl 00 // Color Negro
+   movk x10, 0x00C0, lsl 16 
+   mov x11, #175 // Posición Y final
+   mov x12, #625  // Posición X final
+   mov x13, #85  // Posición Y inicial
+   mov x14, #310  // Posición X inicial
+   mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+   bl dibujar_rectangulo
 
+   mov x0, x20   
+   movz x10, 0xFFFF, lsl 00 // Color Negro
+   movk x10, 0xFFFF, lsl 16 
+   mov x11, #170 // Posición Y final
+   mov x12, #620  // Posición X final
+   mov x13, #90  // Posición Y inicial
+   mov x14, #315  // Posición X inicial
+   mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+   bl dibujar_rectangulo
+
+    // Restaurar registros desde la pila
+    ldr x0, [sp, #0]
+    ldr x1, [sp, #8]
+    ldr x2, [sp, #16]
+    ldr x3, [sp, #24]       
+    ldr x4, [sp, #32]
+    ldr x5, [sp, #40]
+    ldr x30, [sp, #48]        
+    add sp, sp, #56            // Y Size #48        
+
+    ret
+
+/*
+
+   Pensamienot anterior
     mov x0, x20               // framebuffer base
     mov x1, #490               // centro_x
     mov x2, #235               // centro_y
@@ -62,15 +98,6 @@ dialogue:
     movk w5, #0xFFFF, lsl #16 // parte alta: rojo → color: magenta (0x00FF00FF)
     bl dibujar_elipse
 
+ */
 
-    // Restaurar registros desde la pila
-    ldr x0, [sp, #0]
-    ldr x1, [sp, #8]
-    ldr x2, [sp, #16]
-    ldr x3, [sp, #24]       
-    ldr x4, [sp, #32]
-    ldr x5, [sp, #40]
-    ldr x30, [sp, #48]        
-    add sp, sp, #56            // Y Size #48        
 
-    ret
