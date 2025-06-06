@@ -232,7 +232,7 @@ bl dibujar_rectangulo
 //------------------Hojas Del Arbol (Arriba)------------------//
 mov x0, x20               // framebuffer base
 mov x1, #60             // centro_x
-mov x2, #50             // centro_y
+mov x2, #55             // centro_y
 mov x3, #80              // a (radio horizontal)
 mov x4, #50              // b (radio vertical)
 movz w5, #0x0080         
@@ -301,6 +301,7 @@ mov x4, #67              // b (radio vertical)
 movz w5, #0x69B4         
 movk w5, #0xFFFF, lsl #16 // Rosa Claro
 bl dibujar_elipse
+<<<<<<< HEAD
 
 
     //---------------------- Arbusto Debajo del Arbol ---------------------//
@@ -332,6 +333,8 @@ movz x4, 0x8B22, lsl 00   // Verde Oscuro
 movk x4, 0x0022, lsl 16
 bl dibujar_circulo
 
+=======
+>>>>>>> 94e3c66cdc408dfc2afcb06316d9ebbeffb6b9ae
 
 //Hojas del Arbol Caidas
 mov x0, x20               // framebuffer base
@@ -475,6 +478,7 @@ mov x3, #9              // a (radio horizontal)
 mov x4, #6                // b (radio vertical)
 movz w5, #0x0080         
 movk w5, #0x0080, lsl 16 
+<<<<<<< HEAD
 bl dibujar_elipse
 
 mov x0, x20               // framebuffer base
@@ -519,12 +523,57 @@ bl dibujar_elipse
 mov x0, x20               // framebuffer base
 mov x1, #285             // centro_x
 mov x2, #140             // centro_y
+=======
+bl dibujar_elipse
+
+mov x0, x20               // framebuffer base
+mov x1, #260             // centro_x
+mov x2, #298             // centro_y
 mov x3, #6              // a (radio horizontal)
 mov x4, #3                // b (radio vertical)
 movz w5, #0x69B4         
 movk w5, #0x00FF, lsl 16 
 bl dibujar_elipse
 
+//hoja 3
+mov x0, x20               // framebuffer base
+mov x1, #225             // centro_x
+mov x2, #170             // centro_y
+mov x3, #9              // a (radio horizontal)
+mov x4, #6                // b (radio vertical)
+movz w5, #0x0080         
+movk w5, #0x0080, lsl 16 
+bl dibujar_elipse
+
+mov x0, x20               // framebuffer base
+mov x1, #225             // centro_x
+mov x2, #170             // centro_y
+>>>>>>> 94e3c66cdc408dfc2afcb06316d9ebbeffb6b9ae
+mov x3, #6              // a (radio horizontal)
+mov x4, #3                // b (radio vertical)
+movz w5, #0x69B4         
+movk w5, #0x00FF, lsl 16 
+bl dibujar_elipse
+
+
+//hoja 4
+mov x0, x20               // framebuffer base
+mov x1, #285             // centro_x
+mov x2, #140             // centro_y
+mov x3, #9              // a (radio horizontal)
+mov x4, #6                // b (radio vertical)
+movz w5, #0x0080         
+movk w5, #0x0080, lsl 16 
+bl dibujar_elipse
+
+mov x0, x20               // framebuffer base
+mov x1, #285             // centro_x
+mov x2, #140             // centro_y
+mov x3, #6              // a (radio horizontal)
+mov x4, #3                // b (radio vertical)
+movz w5, #0x69B4         
+movk w5, #0x00FF, lsl 16 
+bl dibujar_elipse
     ldr x30, [sp,#0]
     ldr x30, [sp, #0] 
     ldr x1, [sp, #8] 

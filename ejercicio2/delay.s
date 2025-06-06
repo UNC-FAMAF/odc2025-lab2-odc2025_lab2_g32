@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 .equ DELAY, 0x4FFF0000
+=======
+.equ DELAY, 0xFFF0000
+// 0x1FFFFFFF 
+// 0x3FFFFFFF
+>>>>>>> 94e3c66cdc408dfc2afcb06316d9ebbeffb6b9ae
 
 .globl delay
 
