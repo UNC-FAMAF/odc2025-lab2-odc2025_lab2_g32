@@ -540,6 +540,64 @@ movz w5, #0x69B4
 movk w5, #0x00FF, lsl 16 // Rosa Oscuro 
 bl dibujar_elipse
 
+//---------------------------- Ojos del Arbol ---------------------------//
+    mov x0, x20               // framebuffer base
+    mov x1, #125             // centro_x
+    mov x2, #150             // centro_y
+    mov x3, #13              // a (radio horizontal)
+    mov x4, #18              // b (radio vertical)
+    movz w5, #0x4513, lsl 0        
+    movk w5, #0x008B, lsl 16  // Color Marron Oscuro
+    bl dibujar_elipse
+
+    mov x0, x20               // framebuffer base
+    mov x1, #170             // centro_x
+    mov x2, #150             // centro_y
+    mov x3, #15              // a (radio horizontal)
+    mov x4, #13              // b (radio vertical)
+    movz w5, #0x4513, lsl 0        
+    movk w5, #0x008B, lsl 16  // Color Marron Oscuro
+    bl dibujar_elipse
+
+    mov x0, x20               // framebuffer base
+    mov x1, #150             // centro_x
+    mov x2, #210             // centro_y
+    mov x3, #25              // a (radio horizontal)
+    mov x4, #20              // b (radio vertical)
+    movz w5, #0x4513, lsl 0        
+    movk w5, #0x008B, lsl 16  // Color Marron Oscuro
+    bl dibujar_elipse
+
+
+    mov x0, x20               // framebuffer base
+    mov x1, #170             // centro_x
+    mov x2, #150             // centro_y
+    mov x3, #13              // a (radio horizontal)
+    mov x4, #18              // b (radio vertical)
+    movz w5, #0x860B, lsl 0        
+    movk w5, #0x00B8, lsl 16  // Color Marron Claro
+    bl dibujar_elipse
+
+    mov x0, x20               // framebuffer base
+    mov x1, #125             // centro_x
+    mov x2, #150             // centro_y
+    mov x3, #15              // a (radio horizontal)
+    mov x4, #13              // b (radio vertical)
+    movz w5, #0x860B, lsl 0         
+    movk w5, #0x00B8, lsl 16 /// Color Marron Claro
+    bl dibujar_elipse
+
+    mov x0, x20               // framebuffer base
+    mov x1, #150             // centro_x
+    mov x2, #210             // centro_y
+    mov x3, #10              // a (radio horizontal)
+    mov x4, #15              // b (radio vertical)
+    movz w5, #0x860B, lsl 0     // Color Marron Claro
+    movk w5, #0x00B8, lsl 16 
+    bl dibujar_elipse
+
+
+
 
     ldr x30, [sp,#0]
     ldr x30, [sp, #0] 

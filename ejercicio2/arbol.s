@@ -42,7 +42,7 @@ dibujar_arbol:
 
     bl dibujar_rectangulo
 
-
+//Ojos del Arbol
     mov x0, x20               // framebuffer base
     mov x1, #125             // centro_x
     mov x2, #150             // centro_y
