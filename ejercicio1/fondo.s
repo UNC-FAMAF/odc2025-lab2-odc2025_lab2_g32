@@ -46,9 +46,9 @@ fondo:
     ret
 
 /*------------------------------ Nube 1 -----------------------------*/	 
-/*
+
 mov x0, x20 // framebuffer_base
-mov x1, #50              // centro_x
+mov x1, #350              // centro_x
 mov x2, #90         // centro_y
 mov x3, #20     // radio
 movz x4, 0xFFFF, lsl 00  // blanco
@@ -56,7 +56,7 @@ movk x4, 0xFFFF, lsl 16
 bl dibujar_circulo
 
 mov x0, x20
-mov x1, #70             // centro 2, un poco a la derecha
+mov x1, #370             // centro 2, un poco a la derecha
 mov x2, #85
 mov x3, #25
 movz x4, 0xFFFF, lsl 00
@@ -64,13 +64,13 @@ movk x4, 0xFFFF, lsl 16
 bl dibujar_circulo
 
 mov x0, x20
-mov x1, #90
+mov x1, #390
 mov x2, #90
 mov x3, #20
 movz x4, 0xFFFF, lsl 00
 movk x4, 0xFFFF, lsl 16
 bl dibujar_circulo
-*/
+
 
 /*-------------------------------- Sol -------------------------------*/
 /*
