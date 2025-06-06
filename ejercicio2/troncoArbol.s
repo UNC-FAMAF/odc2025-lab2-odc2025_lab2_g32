@@ -11,12 +11,12 @@ dibujar_arbol:
     str x1, [sp, #8] 
     str x2, [sp, #16]
     str x3, [sp, #24] 
-    str x4,[sp, #32]
+    str x4, [sp, #32]
     str x5, [sp, #40]
-    str x11,[sp, #48] 
-    str x12,[sp, #56]
-    str x13,[sp, #64]  
-    str x14,[sp, #72]
+    str x11, [sp, #48] 
+    str x12, [sp, #56]
+    str x13, [sp, #64]  
+    str x14, [sp, #72]
     
     //Tronco
     mov x0, x20   
