@@ -45,7 +45,7 @@ dialogue:
    mov x13, #175  // Posición Y inicial
    mov x14, #430  // Posición X inicial
    mov x11, #195 // Posición Y final
-   mov x12, #460  // Posición X final
+   mov x12, #475  // Posición X final
    mov x5, SCREEN_WIDTH // Ancho de la pantalla	
    bl dibujar_rectangulo
 
@@ -57,7 +57,7 @@ dialogue:
    mov x13, #175  // Posición Y inicial
    mov x14, #440  // Posición X inicial
    mov x11, #220 // Posición Y final
-   mov x12, #460  // Posición X final
+   mov x12, #470  // Posición X final
    mov x5, SCREEN_WIDTH // Ancho de la pantalla	
    bl dibujar_rectangulo
 
@@ -71,35 +71,36 @@ dialogue:
    mov x12, #465  // Posición X final
    mov x5, SCREEN_WIDTH // Ancho de la pantalla	
    bl dibujar_rectangulo
- 
-   mov x0, x20   
-   movz x10, 0xFFFF, lsl 00 // Color Negro
-   movk x10, 0x00FF, lsl 16 
-   mov x11, #215 // Posición Y final
-   mov x12, #455  // Posición X final
-   mov x13, #95  // Posición Y inicial
-   mov x14, #443  // Posición X inicial
-   mov x5, SCREEN_WIDTH // Ancho de la pantalla	
-   bl dibujar_rectangulo
-
-
+   
    mov x0, x20   
    movz x10, 0xFFFF, lsl 00 // Color Negro
    movk x10, 0xFFFF, lsl 16 
    mov x13, #90  // Posición Y inicial
    mov x14, #435  // Posición X inicial
    mov x11, #190 // Posición Y final
-   mov x12, #455  // Posición X final
+   mov x12, #470  // Posición X final
    mov x5, SCREEN_WIDTH // Ancho de la pantalla	
    bl dibujar_rectangulo
+ 
+   mov x0, x20   
+   movz x10, 0xFFFF, lsl 00 // Color Negro
+   movk x10, 0x00FF, lsl 16 
+   mov x13, #95  // Posición Y inicial
+   mov x14, #443  // Posición X inicial
+   mov x11, #215 // Posición Y final
+   mov x12, #465  // Posición X final
+   mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+   bl dibujar_rectangulo
+
+
    
    mov x0, x20   
    movz x10, 0xFFFF, lsl 00 // Color Negro
    movk x10, 0xFFFF, lsl 16 
    mov x13, #210  // Posición Y inicial
-   mov x14, #455  // Posición X inicial
+   mov x14, #454  // Posición X inicial
    mov x11, #240 // Posición Y final
-   mov x12, #460  // Posición X final
+   mov x12, #461  // Posición X final
    mov x5, SCREEN_WIDTH // Ancho de la pantalla	
    bl dibujar_rectangulo
  
