@@ -14,13 +14,20 @@ main:
  	mov x20, x0	// Guarda la dirección base del framebuffer en x20
 	//---------------- CODE HERE ------------------------------------
     bl fondo
-	bl kirby
 	bl dibujar_arbol
 InfLoop:
 
+	bl kirby
 	bl frame_1
 	bl delay
 	bl frame_2
+	bl kirby2
+	bl delay
+	bl frame_1
+	bl kirby3
+	bl delay
+	bl frame_3
+	bl kirby2
 	bl delay
 	b InfLoop
 

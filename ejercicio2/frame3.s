@@ -6,9 +6,9 @@
 	.equ GPIO_GPFSEL0,   0x00
 	.equ GPIO_GPLEV0,    0x34
 
-	.globl frame_2
+	.globl frame_3
 
-frame_2:
+frame_3:
     sub sp, sp, #80
     str x30, [sp, #0] 
     str x1, [sp, #8] 

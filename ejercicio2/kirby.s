@@ -41,17 +41,17 @@ kirby:
     mov x0, x20               // framebuffer base
     mov x1, #495               // centro_x
     mov x2, #360               // centro_y
-    mov x3, #30                // radio
+    mov x3, #12                // radio
     mov w4, #0xFFFF1493        // rosa oscuro (ARGB)0x00000000
     bl dibujar_circulo
-
+/*
     mov x0, x20               // framebuffer base
     mov x1, #495               // centro_x
     mov x2, #340               // centro_y
     mov x3, #35                // radio
     mov w4, #0xFFFF69B4	       // rosa claro (ARGB)
     bl dibujar_circulo
-
+*/
     //cachetes
 
     mov x0, x20               // framebuffer base
@@ -76,7 +76,7 @@ kirby:
     mov x1, #480             // centro_x
     mov x2, #315             // centro_y
     mov x3, #6              // a (radio horizontal)
-    mov x4, #20              // b (radio vertical)
+    mov x4, #15              // b (radio vertical)
     movz w5, #0x0000         // parte baja: azul
     movk w5, #0x0000, lsl #16 // parte alta: rojo → color: magenta (0x00FF00FF)
     bl dibujar_elipse
@@ -85,7 +85,7 @@ kirby:
     mov x1, #525             // centro_x
     mov x2, #318             // centro_y
     mov x3, #7              // a (radio horizontal)
-    mov x4, #20              // b (radio vertical)
+    mov x4, #15              // b (radio vertical)
     movz w5, #0x0000         // parte baja: azul
     movk w5, #0x0000, lsl #16 // parte alta: rojo → color: magenta (0x00FF00FF)
     bl dibujar_elipse

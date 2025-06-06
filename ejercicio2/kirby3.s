@@ -14,14 +14,14 @@ kirby3:
     str x30, [sp, #48]
     
     mov x0, x20               // framebuffer base
-    mov x1, #520               // centro_x
+    mov x1, #518               // centro_x
     mov x2, #340               // centro_y
     mov x3, #88                // radio
     mov w4, #0x800080        // Rosa Oscuro
     bl dibujar_circulo
 
     mov x0, x20               // framebuffer base
-    mov x1, #520               // centro_x
+    mov x1, #518               // centro_x
     mov x2, #340               // centro_y
     mov x3, #80                // radio
     mov w4, 0x1493        // Rosa Claro
@@ -39,17 +39,10 @@ kirby3:
     //kirby Sonrisa
 
     mov x0, x20               // framebuffer base
-    mov x1, #495               // centro_x
-    mov x2, #360               // centro_y
-    mov x3, #30                // radio
+    mov x1, #497               // centro_x
+    mov x2, #366               // centro_y
+    mov x3, #20                // radio
     mov w4, #0xFFFF1493        // rosa oscuro (ARGB)0x00000000
-    bl dibujar_circulo
-
-    mov x0, x20               // framebuffer base
-    mov x1, #495               // centro_x
-    mov x2, #340               // centro_y
-    mov x3, #35                // radio
-    mov w4, #0xFFFF69B4	       // rosa claro (ARGB)
     bl dibujar_circulo
 
     //cachetes
@@ -75,8 +68,8 @@ kirby3:
     mov x0, x20              // framebuffer base
     mov x1, #480             // centro_x
     mov x2, #315             // centro_y
-    mov x3, #12               // a (radio horizontal)
-    mov x4, #2              // b (radio vertical)
+    mov x3, #15              // a (radio horizontal)
+    mov x4, #10              // b (radio vertical)
     movz w5, #0x0000         // parte baja: azul
     movk w5, #0x0000, lsl #16 // parte alta: rojo → color: magenta (0x00FF00FF)
     bl dibujar_elipse
@@ -84,18 +77,37 @@ kirby3:
     mov x0, x20               // framebuffer base
     mov x1, #525             // centro_x
     mov x2, #318             // centro_y
-    mov x3, #12              // a (radio horizontal)
-    mov x4, #2              // b (radio vertical)
+    mov x3, #15              // a (radio horizontal)
+    mov x4, #10              // b (radio vertical)
     movz w5, #0x0000         // parte baja: azul
     movk w5, #0x0000, lsl #16 // parte alta: rojo → color: magenta (0x00FF00FF)
     bl dibujar_elipse
+
+    mov x0, x20              // framebuffer base
+    mov x1, #480             // centro_x
+    mov x2, #310             // centro_y
+    mov x3, #18              // a (radio horizontal)
+    mov x4, #10              // b (radio vertical)
+    movz w5, #0x69B4         // parte baja: azul
+    movk w5, #0xFFFF , lsl #16 // parte alta: rojo → color: magenta (0x00FF00FF)
+    bl dibujar_elipse
+
+    mov x0, x20               // framebuffer base
+    mov x1, #525             // centro_x
+    mov x2, #313             // centro_y
+    mov x3, #18              // a (radio horizontal)
+    mov x4, #10              // b (radio vertical)
+    movz w5, #0x69B4         // parte baja: azul
+    movk w5, #0xFFFF , lsl #16 // parte alta: rojo → color: magenta (0x00FF00FF)
+    bl dibujar_elipse
+
 
 
     // Zapatos
 
     mov x0, x20               // framebuffer base
-    mov x1, #455             // centro_x
-    mov x2, #405             // centro_y
+    mov x1, #452             // centro_x
+    mov x2, #406             // centro_y
     mov x3, #12              // a (radio horizontal)
     mov x4, #25              // b (radio vertical)
     movz w5, #0x0000         // Parte baja: 0x143C
@@ -103,8 +115,8 @@ kirby3:
     bl dibujar_elipse
 
     mov x0, x20               // framebuffer base
-    mov x1, #505             // centro_x
-    mov x2, #418             // centro_y
+    mov x1, #507             // centro_x
+    mov x2, #417             // centro_y
     mov x3, #12              // a (radio horizontal)
     mov x4, #25              // b (radio vertical)
     movz w5, #0x0000         // parte baja: azul
@@ -112,8 +124,8 @@ kirby3:
     bl dibujar_elipse
 
     mov x0, x20               // framebuffer base
-    mov x1, #455             // centro_x
-    mov x2, #405             // centro_y
+    mov x1, #452             // centro_x
+    mov x2, #406             // centro_y
     mov x3, #7              // a (radio horizontal)
     mov x4, #20              // b (radio vertical)
     movz w5, #0x143C         // Parte baja: 0x143C
@@ -122,8 +134,8 @@ kirby3:
     bl dibujar_elipse
 
     mov x0, x20               // framebuffer base
-    mov x1, #505             // centro_x
-    mov x2, #418             // centro_y
+    mov x1, #507             // centro_x
+    mov x2, #417             // centro_y
     mov x3, #7              // a (radio horizontal)
     mov x4, #20              // b (radio vertical)
     movz w5, #0x143C         // Parte baja: 0x143C
@@ -134,8 +146,8 @@ kirby3:
     //Manitos
     //Izq
     mov x0, x20               // framebuffer base
-    mov x1, #426             // centro_x
-    mov x2, #340             // centro_y
+    mov x1, #427             // centro_x
+    mov x2, #338             // centro_y
     mov x3, #20              // a (radio horizontal)
     mov x4, #19              // b (radio vertical)
     movz w5, #0x0080         
@@ -143,8 +155,8 @@ kirby3:
     bl dibujar_elipse
 
     mov x0, x20               // framebuffer base
-    mov x1, #427             // centro_x
-    mov x2, #340             // centro_y
+    mov x1, #428             // centro_x
+    mov x2, #338             // centro_y
     mov x3, #18              // a (radio horizontal)
     mov x4, #13              // b (radio vertical)
     movz w5, #0x69B4         
@@ -153,8 +165,8 @@ kirby3:
 
     //Der
     mov x0, x20               // framebuffer base
-    mov x1, #610             // centro_x
-    mov x2, #350             // centro_y
+    mov x1, #612             // centro_x
+    mov x2, #351             // centro_y
     mov x3, #25              // a (radio horizontal)
     mov x4, #18              // b (radio vertical)
     movz w5, #0x0080         
@@ -163,62 +175,14 @@ kirby3:
 
 
     mov x0, x20               // framebuffer base
-    mov x1, #605             // centro_x
-    mov x2, #350             // centro_y
+    mov x1, #607             // centro_x
+    mov x2, #351             // centro_y
     mov x3, #22              // a (radio horizontal)
     mov x4, #15              // b (radio vertical)
     movz w5, #0x69B4         
     movk w5, #0xFFFF, lsl #16 // Rosa Claro
     bl dibujar_elipse
 
-    //------------------------- Pensamiento ---------------------------//
-
-    mov x0, x20               // framebuffer base
-    mov x1, #490               // centro_x
-    mov x2, #235               // centro_y
-    mov x3, #15                // radio
-    mov w4, #0xC0C0C0C0        // gris (ARGB)
-    bl dibujar_circulo
-
-    mov x0, x20               // framebuffer base
-    mov x1, #490              // centro_x
-    mov x2, #235               // centro_y
-    mov x3, #11                // radio
-    mov w4, #0xFFFFFFFF        // rosa blanco
-    bl dibujar_circulo
-
-    mov x0, x20               // framebuffer base
-    mov x1, #460               // centro_x
-    mov x2, #200               // centro_y
-    mov x3, #21                // radio
-    mov w4, #0xC0C0C0C0        // gris (ARGB)
-    bl dibujar_circulo
-
-    mov x0, x20               // framebuffer base
-    mov x1, #460              // centro_x
-    mov x2, #200               // centro_y
-    mov x3, #17                // radio
-    mov w4, #0xFFFFFFFF        // rosa blanco
-    bl dibujar_circulo
-
-    mov x0, x20               // framebuffer base
-    mov x1, #370             // centro_x
-    mov x2, #130             // centro_y
-    mov x3, #165              // a (radio horizontal)
-    mov x4, #55              // b (radio vertical)
-    movz w5, #0xC0C0         // parte baja: azul
-    movk w5, #0x00C0, lsl #16 // parte alta: rojo → color: magenta (0x00FF00FF)
-    bl dibujar_elipse
-
-
-    mov x0, x20               // framebuffer base
-    mov x1, #370             // centro_x
-    mov x2, #130             // centro_y
-    mov x3, #160              // a (radio horizontal)
-    mov x4, #50              // b (radio vertical)
-    movz w5, #0xFFFF         // parte baja: azul
-    movk w5, #0xFFFF, lsl #16 // parte alta: rojo → color: magenta (0x00FF00FF)
-    bl dibujar_elipse
 
     // Restaurar registros desde la pila
     ldr x0, [sp, #0]
