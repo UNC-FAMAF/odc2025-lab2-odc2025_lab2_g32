@@ -92,6 +92,39 @@ dibujar_arbol:
 
     bl dibujar_rectangulo
 
+    //---------------------- Arbusto Debajo del Arbol ---------------------//
+
+    mov x0, x20               // framebuffer base
+    mov x1, #105              // centro_x
+    mov x2, #382              // centro_y
+    mov x3, #40               // radio
+    movz x4, 0xCD32, lsl 00   // Verde Claro
+    movk x4, 0x0032, lsl 16
+    bl dibujar_circulo
+
+
+
+    mov x0, x20               // framebuffer base
+    mov x1, #185              // centro_x
+    mov x2, #378              // centro_y
+    mov x3, #40               // radio
+    movz x4, 0xCD32, lsl 00   // Verde Claro
+    movk x4, 0x0032, lsl 16
+    bl dibujar_circulo
+
+
+
+    mov x0, x20               // framebuffer base
+    mov x1, #145              // centro_x
+    mov x2, #396              // centro_y
+    mov x3, #40               // radio
+    movz x4, 0xCD32, lsl 00   // Verde Claro
+    movk x4, 0x0032, lsl 16
+    bl dibujar_circulo
+
+
+
+
     ldr x30, [sp,#0]
     ldr x30, [sp, #0] 
     ldr x1, [sp, #8] 

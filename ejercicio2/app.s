@@ -29,5 +29,8 @@ InfLoop:
 	bl frame_3
 	bl kirby2
 	bl delay
+	bl frame_2
+	bl kirby2
+	bl delay
 	b InfLoop
 

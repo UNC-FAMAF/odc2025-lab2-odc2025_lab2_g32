@@ -1,4 +1,4 @@
-.equ DELAY, 0xFFF0000
+.equ DELAY, 0x4FFF0000
 
 .globl delay
 
