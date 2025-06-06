@@ -1,5 +1,5 @@
 .globl kirby
-.globl main
+
 
 kirby:
     
@@ -24,8 +24,17 @@ kirby:
     mov x1, #520               // centro_x
     mov x2, #340               // centro_y
     mov x3, #80                // radio
+    mov w4, 0x1493        // Rosa Claro
+    movk w4, 0xFF, lsl 16
+    bl dibujar_circulo
+
+    mov x0, x20               // framebuffer base
+    mov x1, #514               // centro_x
+    mov x2, #341               // centro_y
+    mov x3, #77                // radio
     mov w4, #0xFFFF69B4        // rosa claro
     bl dibujar_circulo
+
 
     //kirby Sonrisa
 
@@ -46,7 +55,7 @@ kirby:
     //cachetes
 
     mov x0, x20               // framebuffer base
-    mov x1, #450             // centro_x
+    mov x1, #455             // centro_x
     mov x2, #340             // centro_y
     mov x3, #6              // a (radio horizontal)
     mov x4, #10              // b (radio vertical)
@@ -136,7 +145,7 @@ kirby:
     mov x0, x20               // framebuffer base
     mov x1, #427             // centro_x
     mov x2, #340             // centro_y
-    mov x3, #13              // a (radio horizontal)
+    mov x3, #18              // a (radio horizontal)
     mov x4, #13              // b (radio vertical)
     movz w5, #0x69B4         
     movk w5, #0xFFFF, lsl #16 // Rosa Claro
