@@ -12,68 +12,7 @@ main:
 	// x0 contiene la direccion base del framebuffer
  	mov x20, x0	// Guarda la dirección base del framebuffer en x20
 	//---------------- CODE HERE ------------------------------------
-
-	movz x10, 0x8B22, lsl 00                  // Color verde
-	movk x10, 0x0022, lsl 16                  
-
-	mov x2, SCREEN_HEIGH         
-loop1:
-	mov x1, SCREEN_WIDTH         
-loop0:
-	stur w10,[x0]  
-	add x0,x0,4	   
-	sub x1,x1,1	   
-	cbnz x1,loop0  
-	sub x2,x2,1	   
-	cbnz x2,loop1  
-	
-	//-------------------------------------------------------------------//
-
-    // Pinta parate de arriba pantalla
-	mov x0, x20	// Guarda la dirección base del framebuffer en x0
-	mov x1, SCREEN_HEIGH
-	movz x10, 0x9DFF, lsl 00                  // Color celeste
-	movk x10, 0x0000, lsl 16                  
-
-	lsr x12, x1, #1 		
-	mov x2, X12          
-loop2:
-	mov x1, SCREEN_WIDTH        
-loop3:
-	stur w10,[x0]  
-	add x0,x0,4	     // Voy al sig pixel
-	sub x1,x1,1	   
-	cbnz x1,loop3  
-	sub x2,x2,1	   
-	cbnz x2,loop2  
-	 
-
-
-/*------------------------------ Nube 1 -----------------------------//	 
-mov x0, x20 // framebuffer_base
-mov x1, #50              // centro_x
-mov x2, #90         // centro_y
-mov x3, #20     // radio
-movz x4, 0xFFFF, lsl 00  // blanco
-movk x4, 0xFFFF, lsl 16
-bl dibujar_circulo
-
-mov x0, x20
-mov x1, #70             // centro 2, un poco a la derecha
-mov x2, #85
-mov x3, #25
-movz x4, 0xFFFF, lsl 00
-movk x4, 0xFFFF, lsl 16
-bl dibujar_circulo
-
-mov x0, x20
-mov x1, #90
-mov x2, #90
-mov x3, #20
-movz x4, 0xFFFF, lsl 00
-movk x4, 0xFFFF, lsl 16
-bl dibujar_circulo
- */
+    bl fondo
 	bl kirby
 
 //---------------------------- LETRA "O" ---------------------------//
