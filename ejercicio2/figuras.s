@@ -1,7 +1,7 @@
 .globl dibujar_circulo
 .globl dibujar_rectangulo
 .globl dibujar_elipse
-.globl main
+
 
 dibujar_circulo:
 
@@ -129,3 +129,4 @@ sub x8, x7, x1               // dx = x - centro_x
 
 
 //---------------------------------- FIN -------------------------------//
+
