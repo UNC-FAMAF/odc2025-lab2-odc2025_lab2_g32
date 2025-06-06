@@ -10,6 +10,8 @@ La images muestra un paisaje dividido en dos partes: celeste que representa el c
 A la derecha se encuentra el Kirby. Su cuerpo es un circulo rosa, con pequepos pies rojos, ojos ovalados negros y mejilllas moradas.
 
 Descripción ejercicio 2:
-
+El objetivo fue crear una escena animada donde el personaje kirby realiza movimientos faciales como parpadeos y cambios de boca, simulando que habla. Además, se añadieron efectos de movimiento en las hojas del árbol
+Se utilizó la técnica de frames: cada cuadro de la animación representada como una función (frame_1, frame_2, etc).
+Estas funciones son llamadas en secuencia dentro de un bucle, alternadas con retardos (delay) para dar la ilusón de movimiento.
 
 Justificación instrucciones ARMv8:
