@@ -24,10 +24,11 @@ frame_2:
  	mov x20, x0	
 
 
+
 //---------------------------- LETRA "O" ---------------------------//
 // Círculo exterior blanco
 mov x0, x20               // framebuffer base
-mov x1, #240              // centro_x
+mov x1, #340              // centro_x
 mov x2, #130              // centro_y
 mov x3, #20          // radio
 movz x4, 0x0000, lsl 00   // Negro
@@ -36,7 +37,7 @@ bl dibujar_circulo
 
 // Círculo interior azul
 mov x0, x20               // framebuffer base
-mov x1, #240              // centro_x
+mov x1, #340              // centro_x
 mov x2, #130              // centro_y
 mov x3, #14               // radio
 movz x4, 0xFFFF, lsl 00   // Color Blanco
@@ -50,7 +51,7 @@ bl dibujar_circulo
 
 // Círculo exterior blanco
 mov x0, x20               // framebuffer base
-mov x1, #285              // centro_x
+mov x1, #385              // centro_x
 mov x2, #130              // centro_y
 mov x3, #20          // radio
 movz x4, 0x0000, lsl 00   // Negro
@@ -59,7 +60,7 @@ bl dibujar_circulo
 
 // Círculo interior
 mov x0, x20               // framebuffer base
-mov x1, #285              // centro_x
+mov x1, #385              // centro_x
 mov x2, #130              // centro_y
 mov x3, #14               // radio
 movz x4, 0xFFFF, lsl 00   // Color Blanco
@@ -71,9 +72,9 @@ mov x0, x20
 movz x10, 0x0000, lsl 00 // Color Negro
 movk x10, 0x0000, lsl 16 
 mov x11, #150 // Posición Y final
-mov x12, #279  // Posición X final
+mov x12, #379  // Posición X final
 mov x13, #111  // Posición Y inicial
-mov x14, #266  // Posición X inicial
+mov x14, #366  // Posición X inicial
 mov x5, SCREEN_WIDTH // Ancho de la pantalla	
 bl dibujar_rectangulo
 
@@ -83,7 +84,7 @@ bl dibujar_rectangulo
 
 // Círculo exterior blanco
 mov x0, x20               // framebuffer base
-mov x1, #330              // centro_x
+mov x1, #430              // centro_x
 mov x2, #130              // centro_y
 mov x3, #20          // radio
 movz x4, 0x0000, lsl 00   // Negro
@@ -92,7 +93,7 @@ bl dibujar_circulo
 
 // Círculo interior azul
 mov x0, x20               // framebuffer base
-mov x1, #330              // centro_x
+mov x1, #430              // centro_x
 mov x2, #130              // centro_y
 mov x3, #14               // radio
 movz x4, 0xFFFF, lsl 00   // Color Blanco
@@ -104,9 +105,9 @@ mov x0, x20
 movz x10, 0xFFFF, lsl 00 // Color Blanco
 movk x10, 0xFFFF, lsl 16  
 mov x11, #150 // Posición Y final
-mov x12, #360  // Posición X final
+mov x12, #460  // Posición X final
 mov x13, #111  // Posición Y inicial
-mov x14, #339  // Posición X inicial
+mov x14, #439  // Posición X inicial
 mov x5, SCREEN_WIDTH // Ancho de la pantalla	
 bl dibujar_rectangulo
 // Fin de la Letra "c"
@@ -116,9 +117,9 @@ mov x0, x20
 movz x10, 0x0000, lsl 00 // Color Negro
 movk x10, 0x00, lsl 16 
 mov x11, #150 // Posición Y final
-mov x12, #390  // Posición X final
+mov x12, #490  // Posición X final
 mov x13, #111  // Posición Y inicial
-mov x14, #360  // Posición X inicial
+mov x14, #460  // Posición X inicial
 mov x5, SCREEN_WIDTH // Ancho de la pantalla	
 bl dibujar_rectangulo
 
@@ -126,9 +127,9 @@ mov x0, x20
 movz x10, 0xFFFF, lsl 00 // Color Blanco
 movk x10, 0xFFFF, lsl 16 
 mov x11, #129 // Posición Y final
-mov x12, #380  // Posición X final
+mov x12, #480  // Posición X final
 mov x13, #120  // Posición Y inicial
-mov x14, #360  // Posición X inicial
+mov x14, #460  // Posición X inicial
 mov x5, SCREEN_WIDTH // Ancho de la pantalla	
 bl dibujar_rectangulo
 
@@ -136,9 +137,9 @@ mov x0, x20
 movz x10, 0xFFFF, lsl 00 // Color Blanco
 movk x10, 0xFFFF, lsl 16 
 mov x11, #143 // Posición Y final
-mov x12, #390  // Posición X final
+mov x12, #490  // Posición X final
 mov x13, #134  // Posición Y inicial
-mov x14, #370  // Posición X inicial
+mov x14, #470  // Posición X inicial
 mov x5, SCREEN_WIDTH // Ancho de la pantalla	
 bl dibujar_rectangulo
 
@@ -148,9 +149,9 @@ mov x0, x20
 movz x10, 0x0000, lsl 00 // Color Negro
 movk x10, 0x0000, lsl 16 
 mov x11, #150 // Posición Y final
-mov x12, #430  // Posición X final
+mov x12, #530  // Posición X final
 mov x13, #111  // Posición Y inicial
-mov x14, #400  // Posición X inicial
+mov x14, #500  // Posición X inicial
 mov x5, SCREEN_WIDTH // Ancho de la pantalla	
 bl dibujar_rectangulo
 
@@ -158,9 +159,9 @@ mov x0, x20
 movz x10, 0xFFFF, lsl 00 // Color Blanco
 movk x10, 0xFFFF, lsl 16 
 mov x11, #142 // Posición Y final
-mov x12, #422  // Posición X final
+mov x12, #522  // Posición X final
 mov x13, #119  // Posición Y inicial
-mov x14, #409  // Posición X inicial
+mov x14, #509  // Posición X inicial
 mov x5, SCREEN_WIDTH // Ancho de la pantalla	
 bl dibujar_rectangulo
 
@@ -170,9 +171,9 @@ mov x0, x20
 movz x10, 0x0000, lsl 00 // Color Negro
 movk x10, 0x0000, lsl 16 
 mov x11, #150 // Posición Y final
-mov x12, #470  // Posición X final
+mov x12, #570  // Posición X final
 mov x13, #111  // Posición Y inicial
-mov x14, #440  // Posición X inicial
+mov x14, #540  // Posición X inicial
 mov x5, SCREEN_WIDTH // Ancho de la pantalla	
 bl dibujar_rectangulo
 
@@ -180,9 +181,9 @@ mov x0, x20
 movz x10, 0xFFFF, lsl 00 // Color Blanco
 movk x10, 0xFFFF, lsl 16 
 mov x11, #129 // Posición Y final
-mov x12, #460  // Posición X final
+mov x12, #560  // Posición X final
 mov x13, #120  // Posición Y inicial
-mov x14, #440  // Posición X inicial
+mov x14, #540  // Posición X inicial
 mov x5, SCREEN_WIDTH // Ancho de la pantalla	
 bl dibujar_rectangulo
 
@@ -190,9 +191,9 @@ mov x0, x20
 movz x10, 0xFFFF, lsl 00 // Color Blanco
 movk x10, 0xFFFF, lsl 16 
 mov x11, #143 // Posición Y final
-mov x12, #470  // Posición X final
+mov x12, #570  // Posición X final
 mov x13, #134  // Posición Y inicial
-mov x14, #450  // Posición X inicial
+mov x14, #550  // Posición X inicial
 mov x5, SCREEN_WIDTH // Ancho de la pantalla	
 bl dibujar_rectangulo
 
@@ -202,9 +203,9 @@ mov x0, x20
 movz x10, 0x0000, lsl 00 // Color Negro
 movk x10, 0x00, lsl 16 
 mov x11, #150 // Posición Y final
-mov x12, #510  // Posición X final
+mov x12, #610  // Posición X final
 mov x13, #111  // Posición Y inicial
-mov x14, #480  // Posición X inicial
+mov x14, #580  // Posición X inicial
 mov x5, SCREEN_WIDTH // Ancho de la pantalla	
 bl dibujar_rectangulo
 
@@ -212,9 +213,9 @@ mov x0, x20
 movz x10, 0xFFFF, lsl 00 // Color Blanco
 movk x10, 0x00FF, lsl 16 
 mov x11, #129 // Posición Y final
-mov x12, #510  // Posición X final
+mov x12, #610  // Posición X final
 mov x13, #120  // Posición Y inicial
-mov x14, #490  // Posición X inicial
+mov x14, #590  // Posición X inicial
 mov x5, SCREEN_WIDTH // Ancho de la pantalla	
 bl dibujar_rectangulo
 
@@ -222,14 +223,11 @@ mov x0, x20
 movz x10, 0xFFFF, lsl 00 // Color Blanco
 movk x10, 0x00FF, lsl 16 
 mov x11, #143 // Posición Y final
-mov x12, #500  // Posición X final
+mov x12, #600  // Posición X final
 mov x13, #134  // Posición Y inicial
-mov x14, #480  // Posición X inicial
+mov x14, #580  // Posición X inicial
 mov x5, SCREEN_WIDTH // Ancho de la pantalla	
 bl dibujar_rectangulo
-
-
-
 
 //------------------Hojas Del Arbol (Arriba)------------------//
 
