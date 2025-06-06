@@ -323,7 +323,7 @@ bl dibujar_circulo
 
 // dibujar el palito de la letra "d"
 mov x0, x20   
-movz x10, 0x0000, lsl 00 // Color verde
+movz x10, 0x0000, lsl 00 // Color Negro
 movk x10, 0x0000, lsl 16 
 mov x11, #150 // Posición Y final
 mov x12, #279  // Posición X final
@@ -350,13 +350,13 @@ mov x0, x20               // framebuffer base
 mov x1, #330              // centro_x
 mov x2, #130              // centro_y
 mov x3, #14               // radio
-movz x4, 0xFFFF, lsl 00   // Color blanco
+movz x4, 0xFFFF, lsl 00   // Color Blanco
 movk x4, 0xFFFF, lsl 16
 bl dibujar_circulo
 
 
 mov x0, x20   
-movz x10, 0xFFFF, lsl 00 // Color Celeste
+movz x10, 0xFFFF, lsl 00 // Color Blanco
 movk x10, 0xFFFF, lsl 16  
 mov x11, #150 // Posición Y final
 mov x12, #360  // Posición X final
@@ -368,7 +368,7 @@ bl dibujar_rectangulo
 
 //---------------------------- 1º NUMERO "2" ---------------------------//
 mov x0, x20   
-movz x10, 0x0000, lsl 00 // Color Blanco
+movz x10, 0x0000, lsl 00 // Color Negro
 movk x10, 0x00, lsl 16 
 mov x11, #150 // Posición Y final
 mov x12, #390  // Posición X final
@@ -400,7 +400,7 @@ bl dibujar_rectangulo
 //---------------------------- NUMERO "0" ---------------------------//
 
 mov x0, x20   
-movz x10, 0x0000, lsl 00 // Color Blanco
+movz x10, 0x0000, lsl 00 // Color Negro
 movk x10, 0x0000, lsl 16 
 mov x11, #150 // Posición Y final
 mov x12, #430  // Posición X final
@@ -410,7 +410,7 @@ mov x5, SCREEN_WIDTH // Ancho de la pantalla
 bl dibujar_rectangulo
 
 mov x0, x20   
-movz x10, 0xFFFF, lsl 00 // Color Celeste
+movz x10, 0xFFFF, lsl 00 // Color Blanco
 movk x10, 0xFFFF, lsl 16 
 mov x11, #142 // Posición Y final
 mov x12, #422  // Posición X final
@@ -422,7 +422,7 @@ bl dibujar_rectangulo
 //---------------------------- 2º NUMERO "2" ---------------------------//
 
 mov x0, x20   
-movz x10, 0x0000, lsl 00 // Color Blanco
+movz x10, 0x0000, lsl 00 // Color Negro
 movk x10, 0x0000, lsl 16 
 mov x11, #150 // Posición Y final
 mov x12, #470  // Posición X final
@@ -454,7 +454,7 @@ bl dibujar_rectangulo
 //---------------------------- NUMERO "5" ---------------------------//
 
 mov x0, x20   
-movz x10, 0x0000, lsl 00 // Color Blanco
+movz x10, 0x0000, lsl 00 // Color Negro
 movk x10, 0x00, lsl 16 
 mov x11, #150 // Posición Y final
 mov x12, #510  // Posición X final
@@ -767,8 +767,8 @@ movk w5, 0xFFFF, lsl 16
 bl dibujar_elipse
 
 
-bl delay
-//---------------- Hojas Cayendo -----------------------//
+//---------------------------- Hojas Cayendo ---------------------------//
+InfLoop1:
 
 mov x0, x20               // framebuffer base
 mov x1, #255             // centro_x
@@ -780,8 +780,6 @@ movk w5, #0x0080, lsl 16 // Rosa Oscuro
 bl dibujar_elipse
 
 
-bl delay
-
 mov x0, x20               // framebuffer base
 mov x1, #255             // centro_x
 mov x2, #155             // centro_y
@@ -792,13 +790,81 @@ movk w5, 0xFFFF, lsl 16
 bl dibujar_elipse
 
 
+bl delay
+
+mov x0, x20               // framebuffer base
+mov x1, #255             // centro_x
+mov x2, #155             // centro_y
+mov x3, #7              // a (radio horizontal)
+mov x4, #10                // b (radio vertical)
+movz w5, #0xFFFF         
+movk w5, #0x00FF, lsl 16 // Blanco 
+bl dibujar_elipse
+
+mov x0, x20               // framebuffer base
+mov x1, #255             // centro_x
+mov x2, #205             // centro_y
+mov x3, #7              // a (radio horizontal)
+mov x4, #10                // b (radio vertical)
+movz w5, #0x0080         
+movk w5, #0x0080, lsl 16 // Rosa Oscuro 
+bl dibujar_elipse
 
 
+mov x0, x20               // framebuffer base
+mov x1, #255              // centro_x
+mov x2, #205              // centro_y
+mov x3, #4             	  // a (radio horizontal)
+mov x4, #7             		// b (radio vertical)
+movz w5, 0x69B4, lsl 00   // Rosa Claro
+movk w5, 0xFFFF, lsl 16
+bl dibujar_elipse
 
 
+bl delay
+
+mov x0, x20               // framebuffer base
+mov x1, #255             // centro_x
+mov x2, #205             // centro_y
+mov x3, #7              // a (radio horizontal)
+mov x4, #10                // b (radio vertical)
+movz w5, 0x9DFF, lsl 00                  // Color celeste
+movk w5, 0x0000, lsl 16      
+bl dibujar_elipse
 
 
+mov x0, x20               // framebuffer base
+mov x1, #255             // centro_x
+mov x2, #255             // centro_y
+mov x3, #7              // a (radio horizontal)
+mov x4, #10                // b (radio vertical)
+movz w5, #0x0080         
+movk w5, #0x0080, lsl 16 // Rosa Oscuro 
+bl dibujar_elipse
 
+
+mov x0, x20               // framebuffer base
+mov x1, #255              // centro_x
+mov x2, #255              // centro_y
+mov x3, #4             	  // a (radio horizontal)
+mov x4, #7             		// b (radio vertical)
+movz w5, 0x69B4, lsl 00   // Rosa Claro
+movk w5, 0xFFFF, lsl 16
+bl dibujar_elipse
+
+bl delay
+
+mov x0, x20               // framebuffer base
+mov x1, #255             // centro_x
+mov x2, #255             // centro_y
+mov x3, #7              // a (radio horizontal)
+mov x4, #10                // b (radio vertical)
+movz w5, 0x8B22, lsl 00                  // Color celeste
+movk w5, 0x0022, lsl 16      
+bl dibujar_elipse
+
+
+b InfLoop1
 //-------------------------------------------------------------------//
 
 	// Ejemplo de uso de gpios

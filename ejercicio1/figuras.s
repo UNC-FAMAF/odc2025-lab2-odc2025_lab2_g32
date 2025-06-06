@@ -1,7 +1,7 @@
 .globl dibujar_circulo
 .globl dibujar_rectangulo
 .globl dibujar_elipse
-.globl main
+
 
 dibujar_circulo:
 
