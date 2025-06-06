@@ -380,47 +380,31 @@ bl dibujar_elipse
 //---------------------------- Hojas Cayendo ---------------------------//
 
 mov x0, x20               // framebuffer base
-mov x1, #255             // centro_x
-mov x2, #155             // centro_y
-mov x3, #7              // a (radio horizontal)
-mov x4, #10                // b (radio vertical)
-movz w5, #0x0080         
-movk w5, #0x0080, lsl 16 // Rosa Oscuro 
+mov x1, #280             // centro_x
+mov x2, #105             // centro_y
+mov x3, #9              // a (radio horizontal)
+mov x4, #12                // b (radio vertical)
+movz w5, #0x9DFF         
+movk w5, #0x0022, lsl 16 // Rosa Oscuro 
 bl dibujar_elipse
-
 
 mov x0, x20               // framebuffer base
-mov x1, #255             // centro_x
-mov x2, #155             // centro_y
-mov x3, #4              // a (radio horizontal)
-mov x4, #7             // b (radio vertical)
-movz w5, 0x69B4, lsl 00   // Rosa Claro
-movk w5, 0xFFFF, lsl 16
+mov x1, #240             // centro_x
+mov x2, #145             // centro_y
+mov x3, #9              // a (radio horizontal)
+mov x4, #12                // b (radio vertical)
+movz w5, #0x9DFF         
+movk w5, #0x0022, lsl 16  
 bl dibujar_elipse
-
-
 
 mov x0, x20               // framebuffer base
-mov x1, #255             // centro_x
-mov x2, #205             // centro_y
-mov x3, #7              // a (radio horizontal)
-mov x4, #10                // b (radio vertical)
-movz w5, #0x0080         
-movk w5, #0x0080, lsl 16 // Rosa Oscuro 
+mov x1, #268             // centro_x
+mov x2, #275             // centro_y
+mov x3, #9             // a (radio horizontal)
+mov x4, #12                // b (radio vertical)
+movz w5, #0x8B22         
+movk w5, #0x0022, lsl 16
 bl dibujar_elipse
-
-
-mov x0, x20               // framebuffer base
-mov x1, #255              // centro_x
-mov x2, #205              // centro_y
-mov x3, #4             	  // a (radio horizontal)
-mov x4, #7             		// b (radio vertical)
-movz w5, 0x69B4, lsl 00   // Rosa Claro
-movk w5, 0xFFFF, lsl 16
-bl dibujar_elipse
-
-
-
 
 
 mov x0, x20               // framebuffer base
@@ -428,41 +412,87 @@ mov x1, #255             // centro_x
 mov x2, #205             // centro_y
 mov x3, #7              // a (radio horizontal)
 mov x4, #10                // b (radio vertical)
-movz w5, 0x9DFF, lsl 00                  // Color celeste
-movk w5, 0x0000, lsl 16      
+movz w5, #0x9DFF         
+movk w5, #0x0022, lsl 16 
 bl dibujar_elipse
 
 
+//hoja 1
 mov x0, x20               // framebuffer base
-mov x1, #255             // centro_x
-mov x2, #255             // centro_y
-mov x3, #7              // a (radio horizontal)
-mov x4, #10                // b (radio vertical)
+mov x1, #275             // centro_x
+mov x2, #225             // centro_y
+mov x3, #10              // a (radio horizontal)
+mov x4, #7                // b (radio vertical)
 movz w5, #0x0080         
-movk w5, #0x0080, lsl 16 // Rosa Oscuro 
+movk w5, #0x0080, lsl 16 
 bl dibujar_elipse
 
-
 mov x0, x20               // framebuffer base
-mov x1, #255              // centro_x
-mov x2, #255              // centro_y
-mov x3, #4             	  // a (radio horizontal)
-mov x4, #7             		// b (radio vertical)
-movz w5, 0x69B4, lsl 00   // Rosa Claro
-movk w5, 0xFFFF, lsl 16
-bl dibujar_elipse
-
-
-
-mov x0, x20               // framebuffer base
-mov x1, #255             // centro_x
-mov x2, #255             // centro_y
+mov x1, #275             // centro_x
+mov x2, #225             // centro_y
 mov x3, #7              // a (radio horizontal)
-mov x4, #10                // b (radio vertical)
-movz w5, 0x8B22, lsl 00                  // Color celeste
-movk w5, 0x0022, lsl 16      
+mov x4, #4                // b (radio vertical)
+movz w5, #0x69B4         
+movk w5, #0x00FF, lsl 16 
 bl dibujar_elipse
 
+//hoja 2
+mov x0, x20               // framebuffer base
+mov x1, #260             // centro_x
+mov x2, #298             // centro_y
+mov x3, #9              // a (radio horizontal)
+mov x4, #6                // b (radio vertical)
+movz w5, #0x0080         
+movk w5, #0x0080, lsl 16 
+bl dibujar_elipse
+
+mov x0, x20               // framebuffer base
+mov x1, #260             // centro_x
+mov x2, #298             // centro_y
+mov x3, #6              // a (radio horizontal)
+mov x4, #3                // b (radio vertical)
+movz w5, #0x69B4         
+movk w5, #0x00FF, lsl 16 
+bl dibujar_elipse
+
+//hoja 3
+mov x0, x20               // framebuffer base
+mov x1, #225             // centro_x
+mov x2, #170             // centro_y
+mov x3, #9              // a (radio horizontal)
+mov x4, #6                // b (radio vertical)
+movz w5, #0x0080         
+movk w5, #0x0080, lsl 16 
+bl dibujar_elipse
+
+mov x0, x20               // framebuffer base
+mov x1, #225             // centro_x
+mov x2, #170             // centro_y
+mov x3, #6              // a (radio horizontal)
+mov x4, #3                // b (radio vertical)
+movz w5, #0x69B4         
+movk w5, #0x00FF, lsl 16 
+bl dibujar_elipse
+
+
+//hoja 4
+mov x0, x20               // framebuffer base
+mov x1, #285             // centro_x
+mov x2, #140             // centro_y
+mov x3, #9              // a (radio horizontal)
+mov x4, #6                // b (radio vertical)
+movz w5, #0x0080         
+movk w5, #0x0080, lsl 16 
+bl dibujar_elipse
+
+mov x0, x20               // framebuffer base
+mov x1, #285             // centro_x
+mov x2, #140             // centro_y
+mov x3, #6              // a (radio horizontal)
+mov x4, #3                // b (radio vertical)
+movz w5, #0x69B4         
+movk w5, #0x00FF, lsl 16 
+bl dibujar_elipse
     ldr x30, [sp,#0]
     ldr x30, [sp, #0] 
     ldr x1, [sp, #8] 
