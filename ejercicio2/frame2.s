@@ -230,7 +230,6 @@ mov x5, SCREEN_WIDTH // Ancho de la pantalla
 bl dibujar_rectangulo
 
 //------------------Hojas Del Arbol (Arriba)------------------//
-
 mov x0, x20               // framebuffer base
 mov x1, #60             // centro_x
 mov x2, #50             // centro_y
@@ -241,8 +240,8 @@ movk w5, #0x0080, lsl 16 // Rosa Oscuro
 bl dibujar_elipse
 
 mov x0, x20               // framebuffer base
-mov x1, #70            // centro_x
-mov x2, #55             // centro_y
+mov x1, #65            // centro_x
+mov x2, #47             // centro_y
 mov x3, #77              // a (radio horizontal)
 mov x4, #47              // b (radio vertical)
 movz w5, #0x69B4         
@@ -259,8 +258,8 @@ movk w5, #0x0080, lsl 16 // Rosa Oscuro
 bl dibujar_elipse
 
 mov x0, x20               // framebuffer base
-mov x1, #220             // centro_x
-mov x2, #25             // centro_y
+mov x1, #237             // centro_x
+mov x2, #17             // centro_y
 mov x3, #77              // a (radio horizontal)
 mov x4, #67              // b (radio vertical)
 movz w5, #0x69B4         
@@ -277,8 +276,8 @@ movk w5, #0x0080, lsl 16 // Rosa Oscuro
 bl dibujar_elipse
 
 mov x0, x20               // framebuffer base
-mov x1, #160             // centro_x
-mov x2, #30             // centro_y
+mov x1, #170             // centro_x
+mov x2, #17             // centro_y
 mov x3, #87              // a (radio horizontal)
 mov x4, #67              // b (radio vertical)
 movz w5, #0x69B4         
@@ -302,7 +301,6 @@ mov x4, #67              // b (radio vertical)
 movz w5, #0x69B4         
 movk w5, #0xFFFF, lsl #16 // Rosa Claro
 bl dibujar_elipse
-
 // Arbusto Debajo del Arbol
 mov x0, x20               // framebuffer base
 mov x1, #105              // centro_x

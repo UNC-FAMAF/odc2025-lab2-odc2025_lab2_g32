@@ -51,6 +51,7 @@ bl dibujar_circulo
 
 
 
+
 //---------------------------- LETRA "O" ---------------------------//
 // Círculo exterior blanco
 mov x0, x20               // framebuffer base
@@ -459,27 +460,24 @@ bl dibujar_elipse
 
 
 //---------------------------- Hojas Cayendo ---------------------------//
-
+/*
 mov x0, x20               // framebuffer base
 mov x1, #245             // centro_x
-mov x2, #130             // centro_y
+mov x2, #150             // centro_y
 mov x3, #7              // a (radio horizontal)
 mov x4, #10                // b (radio vertical)
 movz w5, #0x0080         
 movk w5, #0x0080, lsl 16 // Rosa Oscuro 
 bl dibujar_elipse
 
-
 mov x0, x20               // framebuffer base
 mov x1, #255             // centro_x
-mov x2, #130             // centro_y
+mov x2, #155             // centro_y
 mov x3, #4              // a (radio horizontal)
 mov x4, #7             // b (radio vertical)
 movz w5, 0x69B4, lsl 00   // Rosa Claro
 movk w5, 0xFFFF, lsl 16
 bl dibujar_elipse
-
-
 
 mov x0, x20               // framebuffer base
 mov x1, #255             // centro_x
@@ -490,7 +488,6 @@ movz w5, #0x0080
 movk w5, #0x0080, lsl 16 // Rosa Oscuro 
 bl dibujar_elipse
 
-
 mov x0, x20               // framebuffer base
 mov x1, #255              // centro_x
 mov x2, #205              // centro_y
@@ -499,10 +496,6 @@ mov x4, #7             		// b (radio vertical)
 movz w5, 0x69B4, lsl 00   // Rosa Claro
 movk w5, 0xFFFF, lsl 16
 bl dibujar_elipse
-
-
-
-
 
 mov x0, x20               // framebuffer base
 mov x1, #255             // centro_x
@@ -533,7 +526,7 @@ movz w5, 0x69B4, lsl 00   // Rosa Claro
 movk w5, 0xFFFF, lsl 16
 bl dibujar_elipse
 
-
+*/
 
 mov x0, x20               // framebuffer base
 mov x1, #255             // centro_x
