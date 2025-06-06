@@ -478,7 +478,6 @@ mov x3, #9              // a (radio horizontal)
 mov x4, #6                // b (radio vertical)
 movz w5, #0x0080         
 movk w5, #0x0080, lsl 16 
-<<<<<<< HEAD
 bl dibujar_elipse
 
 mov x0, x20               // framebuffer base
@@ -523,32 +522,6 @@ bl dibujar_elipse
 mov x0, x20               // framebuffer base
 mov x1, #285             // centro_x
 mov x2, #140             // centro_y
-=======
-bl dibujar_elipse
-
-mov x0, x20               // framebuffer base
-mov x1, #260             // centro_x
-mov x2, #298             // centro_y
-mov x3, #6              // a (radio horizontal)
-mov x4, #3                // b (radio vertical)
-movz w5, #0x69B4         
-movk w5, #0x00FF, lsl 16 
-bl dibujar_elipse
-
-//hoja 3
-mov x0, x20               // framebuffer base
-mov x1, #225             // centro_x
-mov x2, #170             // centro_y
-mov x3, #9              // a (radio horizontal)
-mov x4, #6                // b (radio vertical)
-movz w5, #0x0080         
-movk w5, #0x0080, lsl 16 
-bl dibujar_elipse
-
-mov x0, x20               // framebuffer base
-mov x1, #225             // centro_x
-mov x2, #170             // centro_y
->>>>>>> 94e3c66cdc408dfc2afcb06316d9ebbeffb6b9ae
 mov x3, #6              // a (radio horizontal)
 mov x4, #3                // b (radio vertical)
 movz w5, #0x69B4         
@@ -556,24 +529,6 @@ movk w5, #0x00FF, lsl 16
 bl dibujar_elipse
 
 
-//hoja 4
-mov x0, x20               // framebuffer base
-mov x1, #285             // centro_x
-mov x2, #140             // centro_y
-mov x3, #9              // a (radio horizontal)
-mov x4, #6                // b (radio vertical)
-movz w5, #0x0080         
-movk w5, #0x0080, lsl 16 
-bl dibujar_elipse
-
-mov x0, x20               // framebuffer base
-mov x1, #285             // centro_x
-mov x2, #140             // centro_y
-mov x3, #6              // a (radio horizontal)
-mov x4, #3                // b (radio vertical)
-movz w5, #0x69B4         
-movk w5, #0x00FF, lsl 16 
-bl dibujar_elipse
     ldr x30, [sp,#0]
     ldr x30, [sp, #0] 
     ldr x1, [sp, #8] 
