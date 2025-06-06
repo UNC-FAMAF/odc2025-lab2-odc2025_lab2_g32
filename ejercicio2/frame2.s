@@ -301,7 +301,6 @@ mov x4, #67              // b (radio vertical)
 movz w5, #0x69B4         
 movk w5, #0xFFFF, lsl #16 // Rosa Claro
 bl dibujar_elipse
-<<<<<<< HEAD
 
 
     //---------------------- Arbusto Debajo del Arbol ---------------------//
@@ -332,9 +331,6 @@ mov x3, #45               // radio
 movz x4, 0x8B22, lsl 00   // Verde Oscuro
 movk x4, 0x0022, lsl 16
 bl dibujar_circulo
-
-=======
->>>>>>> 94e3c66cdc408dfc2afcb06316d9ebbeffb6b9ae
 
 //Hojas del Arbol Caidas
 mov x0, x20               // framebuffer base
