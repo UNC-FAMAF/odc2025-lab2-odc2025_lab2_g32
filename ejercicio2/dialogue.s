@@ -1,0 +1,76 @@
+   .globl dialogue 
+
+
+dialogue:
+    
+    sub sp, sp, #56      // guardar registros
+    str x0, [sp, #0]
+    str x1, [sp, #8]
+    str x2, [sp, #16]
+    str x3, [sp, #24]
+    str x4, [sp, #32]
+    str x5, [sp, #40]
+    str x30, [sp, #48]
+   
+   
+   //------------------------- Pensamiento ---------------------------//
+
+    mov x0, x20               // framebuffer base
+    mov x1, #490               // centro_x
+    mov x2, #235               // centro_y
+    mov x3, #15                // radio
+    mov w4, #0xC0C0C0C0        // gris (ARGB)
+    bl dibujar_circulo
+
+    mov x0, x20               // framebuffer base
+    mov x1, #490              // centro_x
+    mov x2, #235               // centro_y
+    mov x3, #11                // radio
+    mov w4, #0xFFFFFFFF        // rosa blanco
+    bl dibujar_circulo
+
+    mov x0, x20               // framebuffer base
+    mov x1, #460               // centro_x
+    mov x2, #200               // centro_y
+    mov x3, #21                // radio
+    mov w4, #0xC0C0C0C0        // gris (ARGB)
+    bl dibujar_circulo
+
+    mov x0, x20               // framebuffer base
+    mov x1, #460              // centro_x
+    mov x2, #200               // centro_y
+    mov x3, #17                // radio
+    mov w4, #0xFFFFFFFF        // rosa blanco
+    bl dibujar_circulo
+
+    mov x0, x20               // framebuffer base
+    mov x1, #370             // centro_x
+    mov x2, #130             // centro_y
+    mov x3, #165              // a (radio horizontal)
+    mov x4, #55              // b (radio vertical)
+    movz w5, #0xC0C0         // parte baja: azul
+    movk w5, #0x00C0, lsl #16 // parte alta: rojo → color: magenta (0x00FF00FF)
+    bl dibujar_elipse
+
+
+    mov x0, x20               // framebuffer base
+    mov x1, #370             // centro_x
+    mov x2, #130             // centro_y
+    mov x3, #160              // a (radio horizontal)
+    mov x4, #50              // b (radio vertical)
+    movz w5, #0xFFFF         // parte baja: azul
+    movk w5, #0xFFFF, lsl #16 // parte alta: rojo → color: magenta (0x00FF00FF)
+    bl dibujar_elipse
+
+
+    // Restaurar registros desde la pila
+    ldr x0, [sp, #0]
+    ldr x1, [sp, #8]
+    ldr x2, [sp, #16]
+    ldr x3, [sp, #24]       
+    ldr x4, [sp, #32]
+    ldr x5, [sp, #40]
+    ldr x30, [sp, #48]        
+    add sp, sp, #56            // Y Size #48        
+
+    ret

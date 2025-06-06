@@ -171,54 +171,7 @@ kirby:
     movk w5, #0xFFFF, lsl #16 // Rosa Claro
     bl dibujar_elipse
 
-    //------------------------- Pensamiento ---------------------------//
-
-    mov x0, x20               // framebuffer base
-    mov x1, #490               // centro_x
-    mov x2, #235               // centro_y
-    mov x3, #15                // radio
-    mov w4, #0xC0C0C0C0        // gris (ARGB)
-    bl dibujar_circulo
-
-    mov x0, x20               // framebuffer base
-    mov x1, #490              // centro_x
-    mov x2, #235               // centro_y
-    mov x3, #11                // radio
-    mov w4, #0xFFFFFFFF        // rosa blanco
-    bl dibujar_circulo
-
-    mov x0, x20               // framebuffer base
-    mov x1, #460               // centro_x
-    mov x2, #200               // centro_y
-    mov x3, #21                // radio
-    mov w4, #0xC0C0C0C0        // gris (ARGB)
-    bl dibujar_circulo
-
-    mov x0, x20               // framebuffer base
-    mov x1, #460              // centro_x
-    mov x2, #200               // centro_y
-    mov x3, #17                // radio
-    mov w4, #0xFFFFFFFF        // rosa blanco
-    bl dibujar_circulo
-
-    mov x0, x20               // framebuffer base
-    mov x1, #370             // centro_x
-    mov x2, #130             // centro_y
-    mov x3, #165              // a (radio horizontal)
-    mov x4, #55              // b (radio vertical)
-    movz w5, #0xC0C0         // parte baja: azul
-    movk w5, #0x00C0, lsl #16 // parte alta: rojo → color: magenta (0x00FF00FF)
-    bl dibujar_elipse
-
-
-    mov x0, x20               // framebuffer base
-    mov x1, #370             // centro_x
-    mov x2, #130             // centro_y
-    mov x3, #160              // a (radio horizontal)
-    mov x4, #50              // b (radio vertical)
-    movz w5, #0xFFFF         // parte baja: azul
-    movk w5, #0xFFFF, lsl #16 // parte alta: rojo → color: magenta (0x00FF00FF)
-    bl dibujar_elipse
+    bl dialogue
 
     // Restaurar registros desde la pila
     ldr x0, [sp, #0]
