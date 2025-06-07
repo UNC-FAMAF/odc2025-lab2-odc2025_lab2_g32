@@ -17,7 +17,7 @@ main:
 	bl dibujar_arbol
 InfLoop:
 	
-	bl kirby
+	bl kirby1
 	bl frame_1
 	bl delay
 	bl frame_2

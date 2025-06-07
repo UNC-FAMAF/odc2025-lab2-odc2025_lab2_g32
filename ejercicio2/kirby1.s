@@ -1,7 +1,7 @@
-.globl kirby
+.globl kirby1
 
 
-kirby:
+kirby1:
     
 
     sub sp, sp, #56      // guardar registros
