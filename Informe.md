@@ -15,4 +15,4 @@ Se utilizó la técnica de frames: cada cuadro de la animación representada com
 Estas funciones son llamadas en secuencia dentro de un bucle, alternadas con retardos (delay) para dar la ilusón de movimiento.
 
 Justificación instrucciones ARMv8:
-En el desarrollo de funciones, se utilizaron instrucciones str y ldr.
+En el desarrollo de funciones, se utilizaron instrucciones str y ldr, como tambien usamos el sp (Stack Pointer) y el ret para retornar de una subrutina.
