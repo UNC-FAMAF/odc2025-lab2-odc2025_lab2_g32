@@ -10,7 +10,7 @@ fondo:
     str x14, [sp, #32]
     str x5, [sp, #40]
     str x30, [sp, #56]    // link register  
-    //cielo
+//------------------------------------Cielo------------------------------------//
     mov x0, x20                
     movz x10, 0x9DFF, lsl 0    
     movk x10, 0x0022, lsl 16
@@ -22,7 +22,7 @@ fondo:
 
     bl dibujar_rectangulo
 
-    //pasto
+//-------------------------------Pasto------------------------------------//
     mov x0, x20                
     movz x10, 0x8B22, lsl 00   
     movk x10, 0x0022, lsl 16
@@ -34,7 +34,9 @@ fondo:
 
     bl dibujar_rectangulo
 
-    // Color gris-azulado: 0xFFB0B8C8
+//--------------------Nubes----------------------------//
+
+// Color gris-azulado: 0xFFB0B8C8
     movz w5, #0xB8C8
     movk w5, #0xFFB0, lsl #16
 
@@ -117,9 +119,9 @@ fondo:
     mov x3, #24
     mov x4, #14
     bl dibujar_elipse
+    
 
-
-    //Piedra
+//-------------------------------Piedras------------------------------------//
     mov x0, x20   
     movz x10, 0x8080, lsl 0    
     movk x10, 0x8080, lsl 16
