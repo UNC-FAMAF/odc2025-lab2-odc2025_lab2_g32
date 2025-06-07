@@ -13,11 +13,11 @@ kirby2:
     str x5, [sp, #40]
     str x30, [sp, #48]
     
-    mov x0, x20               // framebuffer base
+    mov x0, x20                // framebuffer base
     mov x1, #521               // centro_x
     mov x2, #342               // centro_y
     mov x3, #87                // radio
-    mov w4, #0x800080        // Rosa Oscuro
+    mov w4, #0x800080          // Rosa Oscuro
     bl dibujar_circulo
 
     mov x0, x20               // framebuffer base
@@ -45,14 +45,7 @@ kirby2:
     mov w4, #0xFFFF1493        // rosa oscuro (ARGB)0x00000000
     bl dibujar_circulo
 
-/*
-    mov x0, x20               // framebuffer base
-    mov x1, #500               // centro_x
-    mov x2, #360               // centro_y
-    mov x3, #10                // radio
-    mov w4, #0xFFFF69B4	       // rosa claro (ARGB)
-    bl dibujar_circulo
-*/
+
 
     //cachetes
 

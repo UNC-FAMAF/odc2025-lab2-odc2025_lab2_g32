@@ -44,14 +44,7 @@ kirby:
     mov x3, #12                // radio
     mov w4, #0xFFFF1493        // rosa oscuro (ARGB)0x00000000
     bl dibujar_circulo
-/*
-    mov x0, x20               // framebuffer base
-    mov x1, #495               // centro_x
-    mov x2, #340               // centro_y
-    mov x3, #35                // radio
-    mov w4, #0xFFFF69B4	       // rosa claro (ARGB)
-    bl dibujar_circulo
-*/
+
     //cachetes
 
     mov x0, x20               // framebuffer base

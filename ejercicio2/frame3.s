@@ -415,8 +415,8 @@ mov x1, #285             // centro_x
 mov x2, #140             // centro_y
 mov x3, #9              // a (radio horizontal)
 mov x4, #6                // b (radio vertical)
-movz w5, #0x9DFF         
-movk w5, #0x0022, lsl 16 
+movz w5, 0xA3CB, lsl 0    
+movk w5, 0x00F9, lsl 16
 bl dibujar_elipse
 
 
@@ -425,8 +425,8 @@ mov x1, #280             // centro_x
 mov x2, #105             // centro_y
 mov x3, #9              // a (radio horizontal)
 mov x4, #12                // b (radio vertical)
-movz w5, #0x9DFF         
-movk w5, #0x0022, lsl 16 // Rosa Oscuro 
+movz w5, 0xA3CB, lsl 0    
+movk w5, 0x00F9, lsl 16
 bl dibujar_elipse
 
 mov x0, x20               // framebuffer base
@@ -434,8 +434,8 @@ mov x1, #240             // centro_x
 mov x2, #145             // centro_y
 mov x3, #9              // a (radio horizontal)
 mov x4, #12                // b (radio vertical)
-movz w5, #0x9DFF         
-movk w5, #0x0022, lsl 16  
+movz w5, 0xA3CB, lsl 0    
+movk w5, 0x00F9, lsl 16
 bl dibujar_elipse
 
 mov x0, x20               // framebuffer base
@@ -452,8 +452,8 @@ mov x1, #275             // centro_x
 mov x2, #225             // centro_y
 mov x3, #10              // a (radio horizontal)
 mov x4, #7                // b (radio vertical)
-movz w5, #0x9DFF         
-movk w5, #0x0022, lsl 16 // Rosa Oscuro 
+movz w5, 0xCEE6, lsl 0    
+movk w5, 0x00FF, lsl 16
 bl dibujar_elipse
 
 mov x0, x20               // framebuffer base
@@ -461,8 +461,8 @@ mov x1, #255             // centro_x
 mov x2, #205             // centro_y
 mov x3, #7              // a (radio horizontal)
 mov x4, #10                // b (radio vertical)
-movz w5, #0x9dff         
-movk w5, #0x0022, lsl 16 // Rosa Oscuro 
+movz w5, 0xCEE6, lsl 0    
+movk w5, 0x00FF, lsl 16
 bl dibujar_elipse
 
 //------------------------------- Ojos del Arbol ---------------------------//
@@ -473,7 +473,7 @@ bl dibujar_elipse
     mov x3, #13              // a (radio horizontal)
     mov x4, #18              // b (radio vertical)
     movz w5, #0x860B, lsl 0        
-    movk w5, #0x00B8, lsl 16  // Color Marron Claro
+    movk w5, #0x00B8, lsl 16 
     bl dibujar_elipse
 
     mov x0, x20               // framebuffer base
@@ -482,7 +482,7 @@ bl dibujar_elipse
     mov x3, #15              // a (radio horizontal)
     mov x4, #13              // b (radio vertical)
     movz w5, #0x860B, lsl 0         
-    movk w5, #0x00B8, lsl 16 /// Color Marron Claro
+    movk w5, #0x00B8, lsl 16 
     bl dibujar_elipse
 
     mov x0, x20               // framebuffer base
@@ -490,7 +490,7 @@ bl dibujar_elipse
     mov x2, #210             // centro_y
     mov x3, #15              // a (radio horizontal)
     mov x4, #20              // b (radio vertical)
-    movz w5, #0x860B, lsl 0     // Color Marron Claro
+    movz w5, #0x860B, lsl 0     
     movk w5, #0x00B8, lsl 16 
     bl dibujar_elipse
 

@@ -414,8 +414,8 @@ mov x1, #280             // centro_x
 mov x2, #105             // centro_y
 mov x3, #9              // a (radio horizontal)
 mov x4, #12                // b (radio vertical)
-movz w5, #0x9DFF         
-movk w5, #0x0022, lsl 16 // Rosa Oscuro 
+movz w5, 0xA3CB, lsl 0    
+movk w5, 0x00F9, lsl 16
 bl dibujar_elipse
 
 mov x0, x20               // framebuffer base
@@ -423,8 +423,8 @@ mov x1, #240             // centro_x
 mov x2, #145             // centro_y
 mov x3, #9              // a (radio horizontal)
 mov x4, #12                // b (radio vertical)
-movz w5, #0x9DFF         
-movk w5, #0x0022, lsl 16  
+movz w5, 0xA3CB, lsl 0    
+movk w5, 0x00F9, lsl 16
 bl dibujar_elipse
 
 mov x0, x20               // framebuffer base
@@ -442,8 +442,8 @@ mov x1, #255             // centro_x
 mov x2, #205             // centro_y
 mov x3, #7              // a (radio horizontal)
 mov x4, #10                // b (radio vertical)
-movz w5, #0x9DFF         
-movk w5, #0x0022, lsl 16 
+movz w5, 0xCEE6, lsl 0    
+movk w5, 0x00FF, lsl 16
 bl dibujar_elipse
 
 

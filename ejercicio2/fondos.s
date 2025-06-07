@@ -12,8 +12,8 @@ fondo:
     str x30, [sp, #56]    // link register  
 //------------------------------------Cielo------------------------------------//
     mov x0, x20                
-    movz x10, 0x9DFF, lsl 0    
-    movk x10, 0x0022, lsl 16
+    movz x10, 0x70D6, lsl 0    
+    movk x10, 0x00DA, lsl 16
     mov x11, #240          
     mov x12, #640          
     mov x13, #0            
@@ -29,6 +29,30 @@ fondo:
     mov x11, #480          
     mov x12, #640          
     mov x13, #240            
+    mov x14, #0            
+    mov x5, #640           
+
+    bl dibujar_rectangulo
+
+
+//-------------------------------Fondito ROSITA------------------------------------//
+    mov x0, x20                
+    movz x10, 0xA3CB, lsl 0    
+    movk x10, 0x00F9, lsl 16
+    mov x11, #240          
+    mov x12, #640          
+    mov x13, #80            
+    mov x14, #0            
+    mov x5, #640           
+
+    bl dibujar_rectangulo
+
+    mov x0, x20                
+    movz x10, 0xCEE6, lsl 0    
+    movk x10, 0x00FF, lsl 16
+    mov x11, #240          
+    mov x12, #640          
+    mov x13, #160            
     mov x14, #0            
     mov x5, #640           
 

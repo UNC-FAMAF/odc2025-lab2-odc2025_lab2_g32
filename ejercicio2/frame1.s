@@ -439,8 +439,8 @@ mov x1, #285             // centro_x
 mov x2, #140             // centro_y
 mov x3, #9              // a (radio horizontal)
 mov x4, #6                // b (radio vertical)
-movz w5, #0x9DFF         
-movk w5, #0x0022, lsl 16 
+movz w5, 0xA3CB, lsl 0    
+movk w5, 0x00F9, lsl 16
 bl dibujar_elipse
 
 mov x0, x20               // framebuffer base
@@ -457,8 +457,8 @@ mov x1, #275             // centro_x
 mov x2, #225             // centro_y
 mov x3, #10              // a (radio horizontal)
 mov x4, #7                // b (radio vertical)
-movz w5, #0x9DFF         
-movk w5, #0x0022, lsl 16 
+movz w5, 0xCEE6, lsl 0    
+movk w5, 0x00FF, lsl 16
 bl dibujar_elipse
 
 //hoja 1
