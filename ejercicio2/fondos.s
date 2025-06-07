@@ -118,15 +118,6 @@ fondo:
     mov x4, #14
     bl dibujar_elipse
 
-    ldr x0, [sp, #0]          // recuperar registros
-    ldr x10, [sp, #8]
-    ldr x11, [sp, #16]
-    ldr x12, [sp, #24]
-    ldr x13, [sp, #32]
-    ldr x14, [sp, #40]
-    ldr x5, [sp, #48]
-    ldr x30, [sp, #56]
-    add sp, sp, #64           // liberar registros
 
     //Piedra
     mov x0, x20   
@@ -212,6 +203,15 @@ fondo:
     bl dibujar_rectangulo
 
 
+    ldr x0, [sp, #0]          // recuperar registros
+    ldr x10, [sp, #8]
+    ldr x11, [sp, #16]
+    ldr x12, [sp, #24]
+    ldr x13, [sp, #32]
+    ldr x14, [sp, #40]
+    ldr x5, [sp, #48]
+    ldr x30, [sp, #56]
+    add sp, sp, #64           // liberar registros
 
 
     
