@@ -112,7 +112,7 @@ dialogue:
     ldr x4, [sp, #32]
     ldr x5, [sp, #40]
     ldr x30, [sp, #48]        
-    add sp, sp, #56            // Y Size #48        
+    add sp, sp, #56                 
 
 
 ret

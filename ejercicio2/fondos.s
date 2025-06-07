@@ -1,4 +1,5 @@
 .globl fondo
+.equ SCREEN_WIDTH, 		640
 fondo:
     
     sub sp, sp, #64      // guardar registros
