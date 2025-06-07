@@ -1,214 +1,122 @@
-.equ SCREEN_WIDTH, 640
-.globl dialogo
-dialogo:
-    sub sp, sp, #8
-    str x30, [sp, #0] // Guardar el link register
-    //---------------------------- LETRA "O" ---------------------------//
-    // Círculo exterior blanco
-    mov x0, x20               // framebuffer base
-    mov x1, #240              // centro_x
-    mov x2, #130              // centro_y
-    mov x3, #20          // radio
-    movz x4, 0x0000, lsl 00   // Negro
-    movk x4, 0x0000, lsl 16
-    bl dibujar_circulo
-    
-    // Círculo interior azul
-    mov x0, x20               // framebuffer base
-    mov x1, #240              // centro_x
-    mov x2, #130              // centro_y
-    mov x3, #14               // radio
-    movz x4, 0xFFFF, lsl 00   // Color Blanco
-    movk x4, 0xFFFF, lsl 16
-    bl dibujar_circulo
-    
-    //-------------------------------------------------------------------//
-    
-    
-    //---------------------------- LETRA "d" ---------------------------//
-    
-    // Círculo exterior blanco
-    mov x0, x20               // framebuffer base
-    mov x1, #285              // centro_x
-    mov x2, #130              // centro_y
-    mov x3, #20          // radio
-    movz x4, 0x0000, lsl 00   // Negro
-    movk x4, 0x0000, lsl 16
-    bl dibujar_circulo
-    
-    // Círculo interior
-    mov x0, x20               // framebuffer base
-    mov x1, #285              // centro_x
-    mov x2, #130              // centro_y
-    mov x3, #14               // radio
-    movz x4, 0xFFFF, lsl 00   // Color Blanco
-    movk x4, 0xFFFF, lsl 16
-    bl dibujar_circulo
-    
-    // dibujar el palito de la letra "d"
-    mov x0, x20   
-    movz x10, 0x0000, lsl 00 // Color verde
-    movk x10, 0x0000, lsl 16 
-    mov x11, #150 // Posición Y final
-    mov x12, #279  // Posición X final
-    mov x13, #111  // Posición Y inicial
-    mov x14, #266  // Posición X inicial
-    mov x5, SCREEN_WIDTH // Ancho de la pantalla	
-    bl dibujar_rectangulo
-    
-    // Fin del palito de la Letra "d"
-    
-    //---------------------------- LETRA "c" ---------------------------//
-    
-    // Círculo exterior blanco
-    mov x0, x20               // framebuffer base
-    mov x1, #330              // centro_x
-    mov x2, #130              // centro_y
-    mov x3, #20          // radio
-    movz x4, 0x0000, lsl 00   // Negro
-    movk x4, 0x0000, lsl 16
-    bl dibujar_circulo
-    
-    // Círculo interior azul
-    mov x0, x20               // framebuffer base
-    mov x1, #330              // centro_x
-    mov x2, #130              // centro_y
-    mov x3, #14               // radio
-    movz x4, 0xFFFF, lsl 00   // Color blanco
-    movk x4, 0xFFFF, lsl 16
-    bl dibujar_circulo
-    
-    
-    mov x0, x20   
-    movz x10, 0xFFFF, lsl 00 // Color Celeste
-    movk x10, 0xFFFF, lsl 16  
-    mov x11, #150 // Posición Y final
-    mov x12, #360  // Posición X final
-    mov x13, #111  // Posición Y inicial
-    mov x14, #339  // Posición X inicial
-    mov x5, SCREEN_WIDTH // Ancho de la pantalla	
-    bl dibujar_rectangulo
-    // Fin de la Letra "c"
-    
-    //---------------------------- 1º NUMERO "2" ---------------------------//
-    mov x0, x20   
-    movz x10, 0x0000, lsl 00 // Color Blanco
-    movk x10, 0x00, lsl 16 
-    mov x11, #150 // Posición Y final
-    mov x12, #390  // Posición X final
-    mov x13, #111  // Posición Y inicial
-    mov x14, #360  // Posición X inicial
-    mov x5, SCREEN_WIDTH // Ancho de la pantalla	
-    bl dibujar_rectangulo
-    
-    mov x0, x20   
-    movz x10, 0xFFFF, lsl 00 // Color Blanco
-    movk x10, 0xFFFF, lsl 16 
-    mov x11, #129 // Posición Y final
-    mov x12, #380  // Posición X final
-    mov x13, #120  // Posición Y inicial
-    mov x14, #360  // Posición X inicial
-    mov x5, SCREEN_WIDTH // Ancho de la pantalla	
-    bl dibujar_rectangulo
-    
-    mov x0, x20   
-    movz x10, 0xFFFF, lsl 00 // Color Blanco
-    movk x10, 0xFFFF, lsl 16 
-    mov x11, #143 // Posición Y final
-    mov x12, #390  // Posición X final
-    mov x13, #134  // Posición Y inicial
-    mov x14, #370  // Posición X inicial
-    mov x5, SCREEN_WIDTH // Ancho de la pantalla	
-    bl dibujar_rectangulo
-    
-    //---------------------------- NUMERO "0" ---------------------------//
-    
-    mov x0, x20   
-    movz x10, 0x0000, lsl 00 // Color Blanco
-    movk x10, 0x0000, lsl 16 
-    mov x11, #150 // Posición Y final
-    mov x12, #430  // Posición X final
-    mov x13, #111  // Posición Y inicial
-    mov x14, #400  // Posición X inicial
-    mov x5, SCREEN_WIDTH // Ancho de la pantalla	
-    bl dibujar_rectangulo
-    
-    mov x0, x20   
-    movz x10, 0xFFFF, lsl 00 // Color Celeste
-    movk x10, 0xFFFF, lsl 16 
-    mov x11, #142 // Posición Y final
-    mov x12, #422  // Posición X final
-    mov x13, #119  // Posición Y inicial
-    mov x14, #409  // Posición X inicial
-    mov x5, SCREEN_WIDTH // Ancho de la pantalla	
-    bl dibujar_rectangulo
-    
-    //---------------------------- 2º NUMERO "2" ---------------------------//
-    
-    mov x0, x20   
-    movz x10, 0x0000, lsl 00 // Color Blanco
-    movk x10, 0x0000, lsl 16 
-    mov x11, #150 // Posición Y final
-    mov x12, #470  // Posición X final
-    mov x13, #111  // Posición Y inicial
-    mov x14, #440  // Posición X inicial
-    mov x5, SCREEN_WIDTH // Ancho de la pantalla	
-    bl dibujar_rectangulo
-    
-    mov x0, x20   
-    movz x10, 0xFFFF, lsl 00 // Color Blanco
-    movk x10, 0xFFFF, lsl 16 
-    mov x11, #129 // Posición Y final
-    mov x12, #460  // Posición X final
-    mov x13, #120  // Posición Y inicial
-    mov x14, #440  // Posición X inicial
-    mov x5, SCREEN_WIDTH // Ancho de la pantalla	
-    bl dibujar_rectangulo
-    
-    mov x0, x20   
-    movz x10, 0xFFFF, lsl 00 // Color Blanco
-    movk x10, 0xFFFF, lsl 16 
-    mov x11, #143 // Posición Y final
-    mov x12, #470  // Posición X final
-    mov x13, #134  // Posición Y inicial
-    mov x14, #450  // Posición X inicial
-    mov x5, SCREEN_WIDTH // Ancho de la pantalla	
-    bl dibujar_rectangulo
-    
-    //---------------------------- NUMERO "5" ---------------------------//
-    
-    mov x0, x20   
-    movz x10, 0x0000, lsl 00 // Color Blanco
-    movk x10, 0x00, lsl 16 
-    mov x11, #150 // Posición Y final
-    mov x12, #510  // Posición X final
-    mov x13, #111  // Posición Y inicial
-    mov x14, #480  // Posición X inicial
-    mov x5, SCREEN_WIDTH // Ancho de la pantalla	
-    bl dibujar_rectangulo
-    
-    mov x0, x20   
-    movz x10, 0xFFFF, lsl 00 // Color Blanco
-    movk x10, 0x00FF, lsl 16 
-    mov x11, #129 // Posición Y final
-    mov x12, #510  // Posición X final
-    mov x13, #120  // Posición Y inicial
-    mov x14, #490  // Posición X inicial
-    mov x5, SCREEN_WIDTH // Ancho de la pantalla	
-    bl dibujar_rectangulo
-    
-    mov x0, x20   
-    movz x10, 0xFFFF, lsl 00 // Color Blanco
-    movk x10, 0x00FF, lsl 16 
-    mov x11, #143 // Posición Y final
-    mov x12, #500  // Posición X final
-    mov x13, #134  // Posición Y inicial
-    mov x14, #480  // Posición X inicial
-    mov x5, SCREEN_WIDTH // Ancho de la pantalla	
-    bl dibujar_rectangulo
+.equ SCREEN_WIDTH, 		640
+.equ SCREEN_HEIGH, 		480
+.globl dialogue 
 
-    ldr x30, [sp, #0] // Recuperar el link register
-    add sp, sp, #8 
+
+dialogue:
     
-    ret 
+    sub sp, sp, #56      // guardar registros
+    str x0, [sp, #0]
+    str x1, [sp, #8]
+    str x2, [sp, #16]
+    str x3, [sp, #24]
+    str x4, [sp, #32]
+    str x5, [sp, #40]
+    str x30, [sp, #48]
+   
+   
+   //------------------------- Globo ---------------------------//
+   //cuadrado grande
+   mov x0, x20   
+   movz x10, 0xC0C0, lsl 00 // Color Negro
+   movk x10, 0x00C0, lsl 16 
+   mov x11, #175 // Posición Y final
+   mov x12, #625  // Posición X final
+   mov x13, #85  // Posición Y inicial
+   mov x14, #310  // Posición X inicial
+   mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+   bl dibujar_rectangulo
+
+   mov x0, x20   
+   movz x10, 0xFFFF, lsl 00 // Color Negro
+   movk x10, 0xFFFF, lsl 16 
+   mov x11, #170 // Posición Y final
+   mov x12, #620  // Posición X final
+   mov x13, #90  // Posición Y inicial
+   mov x14, #315  // Posición X inicial
+   mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+   bl dibujar_rectangulo
+
+   //Triangulo, 1ro contornos, 2do rellenos
+
+   mov x0, x20   
+   movz x10, 0xC0C0, lsl 00 // Color Negro
+   movk x10, 0x00C0, lsl 16 
+   mov x13, #175  // Posición Y inicial
+   mov x14, #430  // Posición X inicial
+   mov x11, #195 // Posición Y final
+   mov x12, #475  // Posición X final
+   mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+   bl dibujar_rectangulo
+
+
+   
+   mov x0, x20   
+   movz x10, 0xC0C0, lsl 00 // Color Negro
+   movk x10, 0x00C0, lsl 16 
+   mov x13, #175  // Posición Y inicial
+   mov x14, #440  // Posición X inicial
+   mov x11, #220 // Posición Y final
+   mov x12, #470  // Posición X final
+   mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+   bl dibujar_rectangulo
+
+      
+   mov x0, x20   
+   movz x10, 0xC0C0, lsl 00 // Color Negro
+   movk x10, 0x00C0, lsl 16 
+   mov x13, #205  // Posición Y inicial
+   mov x14, #450  // Posición X inicial
+   mov x11, #245 // Posición Y final
+   mov x12, #465  // Posición X final
+   mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+   bl dibujar_rectangulo
+   
+   mov x0, x20   
+   movz x10, 0xFFFF, lsl 00 // Color Negro
+   movk x10, 0xFFFF, lsl 16 
+   mov x13, #90  // Posición Y inicial
+   mov x14, #435  // Posición X inicial
+   mov x11, #190 // Posición Y final
+   mov x12, #470  // Posición X final
+   mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+   bl dibujar_rectangulo
+ 
+   mov x0, x20   
+   movz x10, 0xFFFF, lsl 00 // Color Negro
+   movk x10, 0x00FF, lsl 16 
+   mov x13, #95  // Posición Y inicial
+   mov x14, #443  // Posición X inicial
+   mov x11, #215 // Posición Y final
+   mov x12, #465  // Posición X final
+   mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+   bl dibujar_rectangulo
+
+
+   
+   mov x0, x20   
+   movz x10, 0xFFFF, lsl 00 // Color Negro
+   movk x10, 0xFFFF, lsl 16 
+   mov x13, #210  // Posición Y inicial
+   mov x14, #454  // Posición X inicial
+   mov x11, #240 // Posición Y final
+   mov x12, #461  // Posición X final
+   mov x5, SCREEN_WIDTH // Ancho de la pantalla	
+   bl dibujar_rectangulo
+ 
+    // Restaurar registros desde la pila
+    ldr x0, [sp, #0]
+    ldr x1, [sp, #8]
+    ldr x2, [sp, #16]
+    ldr x3, [sp, #24]       
+    ldr x4, [sp, #32]
+    ldr x5, [sp, #40]
+    ldr x30, [sp, #48]        
+    add sp, sp, #56                 
+
+
+ret
+
+
+
 

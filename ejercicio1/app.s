@@ -1,6 +1,6 @@
-.equ SCREEN_WIDTH, 		640
+	.equ SCREEN_WIDTH, 		640
 	.equ SCREEN_HEIGH, 		480
-	.equ BITS_PER_PIXEL,  	32
+	.equ BITS_PER_PIXEL,   32
 
 	.equ GPIO_BASE,      0x3f200000
 	.equ GPIO_GPFSEL0,   0x00
@@ -9,15 +9,16 @@
 	.globl main
 
 main:
+	 
 	// x0 contiene la direccion base del framebuffer
  	mov x20, x0	// Guarda la dirección base del framebuffer en x20
-	bl fondo	
-	bl kirby
-	bl arbol
-	bl dialogo
-
-
+	//---------------- CODE HERE ------------------------------------
+	bl fondo
+	bl dibujar_arbol
+  	bl kirby1
+	bl frame_1
 
 InfLoop:
-	b InfLoop
+	
+b InfLoop
 

@@ -5,14 +5,6 @@
 
 dibujar_circulo:
 
-    sub sp, sp, #40      // Reservar espacio en la pila 
-    str x0, [sp, #0]      // Guardar dirección base del framebuffer
-    str x1, [sp, #8]      // Guardar centro_x
-    str x2, [sp, #12]     // Guardar centro_y
-    str x3, [sp, #16]     // Guardar radio
-    str x4, [sp, #24]     // Guardar color
-    str x30, [sp, #32]     // Guardar x30 (link register)
-
 // Define las coordenadas del centro del círculo y su radio.
     mov x5, x1          // centro_x
     mov x6, x2          // centro_y
@@ -50,38 +42,15 @@ no_circle_pixel:
     cmp x8, #480
     blt circle_y_loop
     
-    
-    ldr x0, [sp, #0]      // Recupera registros 
-    ldr x1, [sp, #8]      
-    ldr x2, [sp, #12]     
-    ldr x3, [sp, #16]     
-    ldr x4, [sp, #24]     
-    ldr x30, [sp, #32]     
-    add sp, sp, #40      
-
     ret
 
 dibujar_rectangulo:
-
-    sub sp, sp, #72           
-    str x0, [sp, #0]          
-    str x1, [sp, #8]          
-    str x2, [sp, #16]         
-    str x3, [sp, #24]         
-    str x4, [sp, #32]         
-    str x5, [sp, #40]         
-    str x6, [sp, #48]         
-    str x7, [sp, #56]         
-    str x30, [sp, #64]        
-
-    mov x3, x11             // Alto del rectángulo (Y)
+    mov x3, x11           // Alto del rectángulo (Y)
     mov x4, x12             // Ancho del rectángulo (X)
-    mov x6, x13             // Y inicial  
 
+    mov x6, x13         // Y inicial  
 rect_y_loop:
-
     mov x7, x14      // X inicial
-
 rect_x_loop:
     // Calcula la dirección del píxel: x0 + (y * SCREEN_WIDTH + x) * 4
     mul x8, x6, x5             // y * SCREEN_WIDTH
@@ -99,33 +68,17 @@ rect_x_loop:
     cmp x6, x3
     blt rect_y_loop            // Si y < alto, sigue
 
-    
-    ldr x0, [sp, #0]
-    ldr x1, [sp, #8]    
-    ldr x2, [sp, #16]
-    ldr x3, [sp, #24]
-    ldr x4, [sp, #32]
-    ldr x5, [sp, #40]
-    ldr x6, [sp, #48]
-    ldr x7, [sp, #56]
-    ldr x30, [sp, #64]
-    add sp, sp, #72           
-
     ret
- 
+
+
+ // Parámetros:
+// x0 = dirección base del framebuffer
+// x1 = centro_x
+// x2 = centro_y
+// x3 = a (radio horizontal)
+// x4 = b (radio vertical)
+// w5 = color (ARGB 32 bits)
 dibujar_elipse:
-
-    sub sp, sp,  #72           // Reservar registros en la pila
-    str x0, [sp, #0]          
-    str x1, [sp, #8]        
-    str x2, [sp, #16]       
-    str x3, [sp, #24]         
-    str x4, [sp, #32]         
-    str x5, [sp, #40]      
-    str x6, [sp, #48]
-    str x7, [sp, #56]
-    str x30, [sp, #64]        
-
     mov x6, #0              // y = 0
 
 .loop_y:
@@ -172,19 +125,8 @@ sub x8, x7, x1               // dx = x - centro_x
     cmp x6, #480
     blt .loop_y
 
-    // Restaurar registros desde la pila
-    ldr x0, [sp, #0]            
-    ldr x1, [sp, #8]
-    ldr x2, [sp, #16]
-    ldr x3, [sp, #24]
-    ldr x4, [sp, #32]
-    ldr x5, [sp, #40]
-    ldr x6, [sp, #48]
-    ldr x7, [sp, #56]
-    ldr x30, [sp, #64]
-    add sp, sp, #72
-
     ret
 
 
 //---------------------------------- FIN -------------------------------//
+
