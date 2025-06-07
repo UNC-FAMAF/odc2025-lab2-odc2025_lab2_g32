@@ -37,8 +37,8 @@ fondo:
 //--------------------Nubes----------------------------//
 
 // Color gris-azulado: 0xFFB0B8C8
-    movz w5, #0xB8C8
-    movk w5, #0xFFB0, lsl #16
+    movz w5, #0x4A4A
+    movk w5, #0x004A, lsl #16
 
     // Nube 1 (central)
     mov x0, x20
@@ -112,12 +112,73 @@ fondo:
     mov x4, #12
     bl dibujar_elipse
 
-    // Nube 6 (más a la izquierda)
+
+    movz w5, #0xFFFF
+    movk w5, #0xFFFF, lsl #16
+
+    // Nube 1 (central)
     mov x0, x20
-    mov x1, #180
+    mov x1, #570
+    mov x2, #50
+    mov x3, #25
+    mov x4, #13
+    bl dibujar_elipse
+
+    // Nube 1 (izquierda)
+    mov x0, x20
+    mov x1, #545
+    mov x2, #55
+    mov x3, #13
+    mov x4, #8
+    bl dibujar_elipse
+
+    // Nube 1 (derecha)
+    mov x0, x20
+    mov x1, #595
+    mov x2, #55
+    mov x3, #13
+    mov x4, #8
+    bl dibujar_elipse
+
+    // Nube 1 (superior)
+    mov x0, x20
+    mov x1, #570
     mov x2, #38
-    mov x3, #24
-    mov x4, #14
+    mov x3, #9
+    mov x4, #5
+    bl dibujar_elipse
+
+
+    // Nube 2 (más a la derecha)
+    mov x0, x20
+    mov x1, #608
+    mov x2, #30
+    mov x3, #15
+    mov x4, #8
+    bl dibujar_elipse
+
+    // Nube 2 (más arriba)
+    mov x0, x20
+    mov x1, #628
+    mov x2, #26
+    mov x3, #7
+    mov x4, #5
+    bl dibujar_elipse
+
+    // Nube 3 (centro-derecha)
+    mov x0, x20
+    mov x1, #499
+    mov x2, #60
+    mov x3, #18
+    mov x4, #10
+    bl dibujar_elipse
+   
+    // Nube 4 (centro)
+    mov x0, x20
+    mov x1, #398
+    mov x2, #45
+    mov x3, #23
+    mov x4, #13
     bl dibujar_elipse
     
 
